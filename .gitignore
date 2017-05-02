@@ -1,10 +1,10 @@
-WowSimpleLadder\WowSimpleLadder.Api\bin
-WowSimpleLadder\WowSimpleLadder.Api\obj
+WowSimpleLadder/WowSimpleLadder.Api/bin
+WowSimpleLadder/WowSimpleLadder.Api/obj
 
-WowSimpleLadder\WowSimpleLadder.Models\bin
-WowSimpleLadder\WowSimpleLadder.Models\obj
+WowSimpleLadder/WowSimpleLadder.Models/bin
+WowSimpleLadder/WowSimpleLadder.Models\obj
 
-WowSimpleLadder\WowSimpleLadder.TestConsole\bin
-WowSimpleLadder\WowSimpleLadder.TestConsole\obj
+WowSimpleLadder/WowSimpleLadder.TestConsole/bin
+WowSimpleLadder/WowSimpleLadder.TestConsole/obj
 
-WowSimpleLadder\packages
+WowSimpleLadder/packages
