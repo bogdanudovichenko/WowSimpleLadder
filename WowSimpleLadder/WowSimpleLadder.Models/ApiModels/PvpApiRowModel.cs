@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WowSimpleLadder.Models.ApiModels
+﻿namespace WowSimpleLadder.Models.ApiModels
 {
     public class PvpApiRowModel
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WowSimpleLadder.Models.Enums
+﻿namespace WowSimpleLadder.Models.Enums
 {
     public enum BlizzardLocale
     {
