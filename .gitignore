@@ -7,4 +7,10 @@ WowSimpleLadder/WowSimpleLadder.Models/obj
 WowSimpleLadder/WowSimpleLadder.TestConsole/bin
 WowSimpleLadder/WowSimpleLadder.TestConsole/obj
 
-WowSimpleLadder/packages
+WowSimpleLadder/WowSimpleLadder.DAL/bin
+WowSimpleLadder/WowSimpleLadder.DAL/obj
+
+WowSimpleLadder/WowSimpleLadder.BLL/bin
+WowSimpleLadder/WowSimpleLadder.BLL/obj
+
+packages/
