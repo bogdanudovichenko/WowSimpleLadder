@@ -1,8 +1,9 @@
 ﻿namespace WowSimpleLadder.Models.Enums
 {
-    public enum WowClasses
+    public enum WowClass
     {
-        Warrior = 1,
+        All,
+        Warrior,
         Paladin,
         Hunter,
         Rogue,

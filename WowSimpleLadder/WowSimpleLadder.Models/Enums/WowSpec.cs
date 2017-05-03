@@ -1,7 +1,9 @@
 ﻿namespace WowSimpleLadder.Models.Enums
 {
-    public enum WowSpecs
+    public enum WowSpec
     {
+        All = 0,
+
         //paladin
         HolyPaladin = 65,
         ProtectionPaladin = 66,

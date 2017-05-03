@@ -1,6 +1,6 @@
 ﻿namespace WowSimpleLadder.Models.Enums
 {
-    public enum WowRaces
+    public enum WowRace
     {
         Human = 1, //mask 1
         Orc, //mask 2

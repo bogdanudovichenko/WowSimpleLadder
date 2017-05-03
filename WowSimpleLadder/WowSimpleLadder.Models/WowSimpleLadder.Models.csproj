@@ -44,10 +44,10 @@
     <Compile Include="ApiModels\PvpApiRowsModel.cs" />
     <Compile Include="Enums\BlizzardLocale.cs" />
     <Compile Include="Enums\Extensions\WowPvpBracketExtensions.cs" />
-    <Compile Include="Enums\WowRaces.cs" />
-    <Compile Include="Enums\WowClasses.cs" />
+    <Compile Include="Enums\WowRace.cs" />
+    <Compile Include="Enums\WowClass.cs" />
     <Compile Include="Enums\WowPvpBracket.cs" />
-    <Compile Include="Enums\WowSpecs.cs" />
+    <Compile Include="Enums\WowSpec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
