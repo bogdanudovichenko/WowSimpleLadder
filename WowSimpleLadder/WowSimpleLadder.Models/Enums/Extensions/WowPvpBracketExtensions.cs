@@ -18,5 +18,27 @@
                     return "2v2";
             }
         }
+
+        public static string ParseBracketName(this WowPvpBracket wowPvpBracket, string bracketName)
+        {
+            if (bracketName == WowPvpBracket.TwoVs2.ToString())
+            {
+                return "2v2";
+            }
+            if (bracketName == WowPvpBracket.ThreeVs3.ToString())
+            {
+                return "3v3";
+            }
+            if (bracketName == WowPvpBracket.FiveVs5.ToString())
+            {
+                return "5v5";
+            }
+            if (bracketName == WowPvpBracket.Rbg.ToString())
+            {
+                return "rbg";
+            }
+
+            return "2v2";
+        }
     }
 }

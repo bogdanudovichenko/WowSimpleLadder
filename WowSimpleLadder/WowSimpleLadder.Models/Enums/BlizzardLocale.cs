@@ -2,7 +2,6 @@
 {
     public enum BlizzardLocale
     {
-        All,
         en_US,
         en_GB
     }

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Linq;
-using WowSimpleLadder.Api.Concrete;
+using System.Configuration;
+using WowSimpleLadder.BLL.Services.Concrete;
+using WowSimpleLadder.DAL.Repositories.Concrete;
 using WowSimpleLadder.Models.Enums;
 
 namespace WowSimpleLadder.TestConsole
@@ -9,13 +10,12 @@ namespace WowSimpleLadder.TestConsole
     {
         static void Main(string[] args)
         {
-            var wowClient = new WowApiClient();
+            //var wowPvpLadderDownloadScheduler = new WowPvpLadderDownloadScheduler();
+            //wowPvpLadderDownloadScheduler.Start();
 
-            var task = wowClient.GetPvpLadderRowsAsync(BlizzardLocale.en_GB, WowPvpBracket.TwoVs2);
-            task.Wait();
-            var result = task.Result;
-
-            var specs = result.Select(row => row.SpecId).ToList();
+            string conn = ConfigurationManager.ConnectionStrings["WowLadderDbConnection"].ToString();
+            var repo = new WowLadderLiteDbRepository(conn);
+            var result = repo.Get(BlizzardLocale.en_GB, WowPvpBracket.TwoVs2);
 
             Console.ReadKey();
         }

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.TestConsole
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.DAL", "WowSimpleLadder.DAL\WowSimpleLadder.DAL.csproj", "{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.BLL", "WowSimpleLadder.BLL\WowSimpleLadder.BLL.csproj", "{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
