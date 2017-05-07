@@ -12,10 +12,12 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
     public class WowLadderLiteDbRepository : IWowLadderRepository, IDisposable
     {
         private readonly LiteRepository _liteDbRepo;
+        private readonly LiteDatabase _liteDb;
 
         public WowLadderLiteDbRepository(string connection)
         {
             _liteDbRepo = new LiteRepository(connection);
+            _liteDb = new LiteDatabase(connection);
         }
 
         public Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
@@ -24,30 +26,41 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
             return Task.Run(() => Get(locale, bracket, wowClass, spec, skip, take));
         }
 
-        public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
+        public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
-            var query = _liteDbRepo.Query<PvpApiRowModel>();
+            var collection = _liteDb.GetCollection<PvpApiRowModel>();
 
-            if (locale != BlizzardLocale.All)
+            Query filterQuery = null;
+
+            if (locale != BlizzardLocale.All && bracket != WowPvpBracket.All)
             {
-                query = query.Where(row => row.Locale == (byte) locale);
+                var localeFilterQuery = Query.EQ("Locale", new BsonValue((int)locale));
+                var bracketFilterQuery = Query.EQ("Bracket", new BsonValue((int)bracket));
+                filterQuery = Query.And(localeFilterQuery, bracketFilterQuery);
+            }
+            else if (locale != BlizzardLocale.All)
+            {
+                filterQuery = Query.EQ("Locale", new BsonValue((int)locale));
+            }
+            else if (bracket != WowPvpBracket.All)
+            {
+                filterQuery = Query.EQ("Bracket", new BsonValue((int) bracket));
+            }
+            else
+            {
+                filterQuery = Query.All();
             }
 
-            if (bracket != WowPvpBracket.All)
-            {
-                query = query.Where(row => row.Bracket == (byte)bracket);
-            }
+            var ratingOrderQuery = Query.All("Rating");
+            var nameOrderQuery = Query.All("Name");
+            var parentOrderQuery = Query.And(ratingOrderQuery, nameOrderQuery);
 
-            var rows = query.ToList();
+            var parentQuery = Query.And(filterQuery, parentOrderQuery);
 
-            rows = rows.Skip((int)skip).Take((int)take)
-                    .OrderBy(row => row.Rating)
-                    .ThenBy(row => row.Name)
-                    .ThenBy(row => row.RealmName)
-                    .ToList();
+            var result = collection.Find(parentQuery, (int)skip, (int)take);
 
-            return rows;
+            return result;
         }
 
         public Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows)

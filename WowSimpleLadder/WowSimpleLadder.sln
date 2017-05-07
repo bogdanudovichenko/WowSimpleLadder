@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.Api", "WowS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.Models", "WowSimpleLadder.Models\WowSimpleLadder.Models.csproj", "{695048E6-8487-4679-88F0-363BAC77653F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.TestConsole", "WowSimpleLadder.TestConsole\WowSimpleLadder.TestConsole.csproj", "{80E726F9-06C8-4E0D-8C0F-C9B4FA473161}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.DAL", "WowSimpleLadder.DAL\WowSimpleLadder.DAL.csproj", "{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.BLL", "WowSimpleLadder.BLL\WowSimpleLadder.BLL.csproj", "{2E055884-CEE2-4A32-AFBD-C6E48095DF3F}"
@@ -33,10 +31,6 @@ Global
 		{695048E6-8487-4679-88F0-363BAC77653F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{695048E6-8487-4679-88F0-363BAC77653F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{695048E6-8487-4679-88F0-363BAC77653F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80E726F9-06C8-4E0D-8C0F-C9B4FA473161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80E726F9-06C8-4E0D-8C0F-C9B4FA473161}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80E726F9-06C8-4E0D-8C0F-C9B4FA473161}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80E726F9-06C8-4E0D-8C0F-C9B4FA473161}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -56,8 +50,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{80E726F9-06C8-4E0D-8C0F-C9B4FA473161} = {DCD83F5B-B1EC-4E7E-AAD2-C98826EB79EC}
 	EndGlobalSection
 EndGlobal
