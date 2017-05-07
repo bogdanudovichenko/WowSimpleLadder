@@ -27,11 +27,19 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
         public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
-            var rows = _liteDbRepo.Query<PvpApiRowModel>()
-                .Where(row => row.Locale == (byte)locale && row.Bracket == (byte)bracket)
-                .Skip((int)skip)
-                .Limit((int)take)
-                .ToList();
+            var query = _liteDbRepo.Query<PvpApiRowModel>();
+
+            if (locale != BlizzardLocale.All)
+            {
+                query = query.Where(row => row.Locale == (byte) locale);
+            }
+
+            if (bracket != WowPvpBracket.All)
+            {
+                query = query.Where(row => row.Bracket == (byte)bracket);
+            }
+
+            var rows = query.Skip((int)skip).Limit((int)take).ToList();
 
             rows = rows.OrderBy(row => row.Rating)
                 .ThenBy(row => row.Ranking)

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using WowSimpleLadder.Configuration;
 using WowSimpleLadder.DAL.Repositories.Concrete;
 using WowSimpleLadder.DAL.Repositories.Interfaces;
 using WowSimpleLadder.Models.ApiModels;
+using WowSimpleLadder.Models.ApiModels.Extensions;
 
 namespace WowSimpleLadder.Web.HttpHandlers
 {
@@ -22,7 +24,17 @@ namespace WowSimpleLadder.Web.HttpHandlers
 
         public override async Task ProcessRequestAsync(HttpContext context)
         {
-            IEnumerable<PvpApiRowModel> rows = await _wowLadderRepository.GetAsync();
+            try
+            {
+                IEnumerable<PvpApiRowModel> rows = await _wowLadderRepository.GetAsync();
+                string jsonResult = rows.ToJson();
+                context.Response.Write(jsonResult);
+            }
+            catch (Exception ex)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                context.Response.Write("Internal Server Error: " + ex.Message);
+            }
         }
 
         public override void ProcessRequest(HttpContext context)

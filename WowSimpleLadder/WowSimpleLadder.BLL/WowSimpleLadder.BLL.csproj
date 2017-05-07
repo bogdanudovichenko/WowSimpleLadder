@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuartzJobs\WowLadderDownloadJob.cs" />
-    <Compile Include="Services\Concrete\IWowPvpLadderDownloadScheduler.cs" />
+    <Compile Include="Services\Concrete\WowPvpLadderDownloadScheduler.cs" />
     <Compile Include="Services\Interfaces\IWowPvpLadderDownloadScheduler.cs" />
   </ItemGroup>
   <ItemGroup>
