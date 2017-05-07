@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Quartz;
 using WowSimpleLadder.Api.Concrete;
 using WowSimpleLadder.Api.Interfaces;
+using WowSimpleLadder.Configuration;
 using WowSimpleLadder.DAL.Repositories.Concrete;
 using WowSimpleLadder.DAL.Repositories.Interfaces;
 using WowSimpleLadder.Models.ApiModels;
@@ -19,8 +19,7 @@ namespace WowSimpleLadder.BLL.QuartzJobs
 
         public WowLadderDownloadJob()
         {
-            string connection = ConfigurationManager.ConnectionStrings["WowLadderDbConnection"].ToString();
-            _wowLadderRepository = new WowLadderLiteDbRepository(connection);
+            _wowLadderRepository = new WowLadderLiteDbRepository(SimpleLadderConfig.WowLadderLiteDbConnection);
         }
 
         public void Execute(IJobExecutionContext context)

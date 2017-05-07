@@ -71,6 +71,10 @@
       <Project>{2e055884-cee2-4a32-afbd-c6e48095df3f}</Project>
       <Name>WowSimpleLadder.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WowSimpleLadder.Configuration\WowSimpleLadder.Configuration.csproj">
+      <Project>{c6223968-7b64-48a1-b221-c12da140af24}</Project>
+      <Name>WowSimpleLadder.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WowSimpleLadder.DAL\WowSimpleLadder.DAL.csproj">
       <Project>{fa73229d-ff1b-42fc-bcb8-e0aa7df0e13c}</Project>
       <Name>WowSimpleLadder.DAL</Name>

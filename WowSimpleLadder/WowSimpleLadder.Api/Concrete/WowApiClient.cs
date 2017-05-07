@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WowSimpleLadder.Api.Interfaces;
+using WowSimpleLadder.Configuration;
 using WowSimpleLadder.Models.ApiModels;
 using WowSimpleLadder.Models.Enums;
 using WowSimpleLadder.Models.Enums.Extensions;
@@ -13,10 +14,9 @@ namespace WowSimpleLadder.Api.Concrete
 {
     public class WowApiClient : IWowApiClient
     {
-        protected string BaseUrl { get; } = "https://eu.api.battle.net/wow/leaderboard";
-        protected string ApiKey { get; } = "s92e46uejpf5ez2eebcds28fcgjt7mt6";
+        protected string BaseUrl { get; } = SimpleLadderConfig.WowLadderBaseUrl;
+        protected string ApiKey { get; } = SimpleLadderConfig.WowApiKey;
         protected HttpClient HttpClient { get; } = new HttpClient();
-
 
         /// <summary>
         /// Return pvp world of warcraft ladder data from official blizzard web api for all local and brackets
