@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace WowSimpleLadder.Models.ApiModels.Extensions
@@ -86,19 +87,27 @@ namespace WowSimpleLadder.Models.ApiModels.Extensions
             }
 
             using (var stringWriter = new StringWriter())
-            using (var jsonTextWriter = new JsonTextWriter(stringWriter))
             {
-                jsonTextWriter.WriteStartArray();
-                //[
-                foreach (PvpApiRowModel pvpApiRowModel in pvpApiRowModels)
+                stringWriter.Write("[");
+
+                var apiRowModelsArr = pvpApiRowModels as List<PvpApiRowModel> ?? pvpApiRowModels.ToList();
+
+                foreach (PvpApiRowModel pvpApiRowModel in apiRowModelsArr)
                 {
-                    if (pvpApiRowModel != null)
+                    string rowJson = pvpApiRowModel?.ToJson();
+
+                    if (!string.IsNullOrEmpty(rowJson))
                     {
-                        jsonTextWriter.WriteValue(pvpApiRowModel.ToJson());
+                        stringWriter.Write(rowJson);
+
+                        if (apiRowModelsArr.Last() != pvpApiRowModel)
+                        {
+                            stringWriter.Write(",");
+                        }
                     }
                 }
-                //]
-                jsonTextWriter.WriteEndArray();
+
+                stringWriter.Write("]");
                 return stringWriter.ToString();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using System.Web;
 using WowSimpleLadder.Configuration;
@@ -28,6 +29,7 @@ namespace WowSimpleLadder.Web.HttpHandlers
             {
                 IEnumerable<PvpApiRowModel> rows = await _wowLadderRepository.GetAsync();
                 string jsonResult = rows.ToJson();
+                context.Response.ContentType = "application/json";
                 context.Response.Write(jsonResult);
             }
             catch (Exception ex)
