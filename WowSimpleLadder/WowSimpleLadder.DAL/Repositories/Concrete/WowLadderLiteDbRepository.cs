@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using LiteDB;
 using WowSimpleLadder.DAL.Repositories.Interfaces;
@@ -31,7 +30,7 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
         {
             var collection = _liteDb.GetCollection<PvpApiRowModel>();
 
-            Query filterQuery = null;
+            Query filterQuery;
 
             if (locale != BlizzardLocale.All && bracket != WowPvpBracket.All)
             {
