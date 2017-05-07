@@ -13,4 +13,10 @@ WowSimpleLadder/WowSimpleLadder.DAL/obj
 WowSimpleLadder/WowSimpleLadder.BLL/bin
 WowSimpleLadder/WowSimpleLadder.BLL/obj
 
+WowSimpleLadder/WowSimpleLadder.Configuration/bin
+WowSimpleLadder/WowSimpleLadder.Configuration/obj
+
+WowSimpleLadder/WowSimpleLadder.PL/bin
+WowSimpleLadder/WowSimpleLadder.PL/obj
+
 packages/
