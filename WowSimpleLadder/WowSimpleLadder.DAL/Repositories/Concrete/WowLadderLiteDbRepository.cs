@@ -39,13 +39,13 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
                 query = query.Where(row => row.Bracket == (byte)bracket);
             }
 
-            var rows = query.Skip((int)skip).Limit((int)take).ToList();
+            var rows = query.ToList();
 
-            rows = rows.OrderBy(row => row.Rating)
-                .ThenBy(row => row.Ranking)
-                .ThenBy(row => row.Name)
-                .ThenBy(row => row.RealmName)
-                .ToList();
+            rows = rows.Skip((int)skip).Take((int)take)
+                    .OrderBy(row => row.Rating)
+                    .ThenBy(row => row.Name)
+                    .ThenBy(row => row.RealmName)
+                    .ToList();
 
             return rows;
         }
