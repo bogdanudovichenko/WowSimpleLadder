@@ -3,6 +3,7 @@
     public enum BlizzardLocale
     {
         en_US,
-        en_GB
+        en_GB,
+        All = byte.MaxValue
     }
 }

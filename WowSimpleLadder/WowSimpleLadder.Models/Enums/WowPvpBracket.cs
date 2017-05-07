@@ -5,6 +5,7 @@
         TwoVs2,
         ThreeVs3,
         FiveVs5,
-        Rbg
+        Rbg,
+        All = byte.MaxValue
     }
 }

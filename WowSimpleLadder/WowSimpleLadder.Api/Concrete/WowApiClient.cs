@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -29,9 +30,20 @@ namespace WowSimpleLadder.Api.Concrete
             {
                 Enum.TryParse(localeName, out BlizzardLocale blizzardLocale);
 
+                if (blizzardLocale == BlizzardLocale.All)
+                {
+                    continue;
+                }
+
                 foreach (string bracketName in Enum.GetNames(typeof(WowPvpBracket)))
                 {
                     Enum.TryParse(bracketName, out WowPvpBracket wowPvpBracket);
+
+                    if (wowPvpBracket == WowPvpBracket.All)
+                    {
+                        continue;
+                    }
+
                     IEnumerable<PvpApiRowModel> pvpLadderRowsBuf = await GetPvpLadderRowsAsync(blizzardLocale, wowPvpBracket);
 
                     if (pvpLadderRowsBuf != null)
@@ -52,7 +64,17 @@ namespace WowSimpleLadder.Api.Concrete
         /// <returns></returns>
         public async Task<IEnumerable<PvpApiRowModel>> GetPvpLadderRowsAsync(BlizzardLocale locale, WowPvpBracket bracket)
         {
-            var url = $"{BaseUrl}/{bracket.Stringify()}?locale={locale.ToString()}&apikey={ApiKey}";
+            if (locale == BlizzardLocale.All)
+            {
+                throw new InvalidEnumArgumentException(nameof(BlizzardLocale.All));
+            }
+
+            if (bracket == WowPvpBracket.All)
+            {
+                throw new InvalidEnumArgumentException(nameof(WowPvpBracket.All));
+            }
+
+            var url = $"{BaseUrl}/{bracket.Stringify()}?locale={locale}&apikey={ApiKey}";
 
             try
             {

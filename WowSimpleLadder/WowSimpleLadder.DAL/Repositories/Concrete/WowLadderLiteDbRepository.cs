@@ -18,14 +18,14 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
             _liteDbRepo = new LiteRepository(connection);
         }
 
-        public Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale, WowPvpBracket bracket, WowClass wowClass = WowClass.All,
-            WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
+        public Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
+            WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
             return Task.Run(() => Get(locale, bracket, wowClass, spec, skip, take));
         }
 
-        public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale, WowPvpBracket bracket, WowClass wowClass = WowClass.All,
-            WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
+        public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
+            WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
             var rows = _liteDbRepo.Query<PvpApiRowModel>()
                 .Where(row => row.Locale == (byte)locale && row.Bracket == (byte)bracket)

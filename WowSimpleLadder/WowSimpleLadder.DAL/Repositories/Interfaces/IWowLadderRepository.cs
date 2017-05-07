@@ -7,10 +7,10 @@ namespace WowSimpleLadder.DAL.Repositories.Interfaces
 {
     public interface IWowLadderRepository
     {
-        Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale, WowPvpBracket bracket,
+        Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100);
 
-        IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale, WowPvpBracket bracket, 
+        IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100);
 
         Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows);
