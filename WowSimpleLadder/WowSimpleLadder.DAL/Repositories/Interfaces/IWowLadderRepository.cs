@@ -7,10 +7,10 @@ namespace WowSimpleLadder.DAL.Repositories.Interfaces
 {
     public interface IWowLadderRepository
     {
-        Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
+        Task<IReadOnlyList<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100);
 
-        IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
+        IReadOnlyList<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100);
 
         Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows);
@@ -18,5 +18,6 @@ namespace WowSimpleLadder.DAL.Repositories.Interfaces
 
         void RemoveAllRecords();
         Task RemoveAllRecordsAsync();
+        bool IsDownloadedToday { get; }
     }
 }

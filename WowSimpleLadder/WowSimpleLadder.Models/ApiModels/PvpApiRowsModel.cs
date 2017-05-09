@@ -4,6 +4,6 @@ namespace WowSimpleLadder.Models.ApiModels
 {
     public class PvpApiRowsModel
     {
-        public IEnumerable<PvpApiRowModel> Rows { get; set; }
+        public IReadOnlyList<PvpApiRowModel> Rows { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace WowSimpleLadder.Models.ApiModels
+﻿using System;
+
+namespace WowSimpleLadder.Models.ApiModels
 {
     public class PvpApiRowModel
     {
@@ -20,5 +22,7 @@
 
         public byte Bracket { get; set; }
         public byte Locale { get; set; }
+
+        public DateTime DownloadedOn { get; set; }
     }
 }

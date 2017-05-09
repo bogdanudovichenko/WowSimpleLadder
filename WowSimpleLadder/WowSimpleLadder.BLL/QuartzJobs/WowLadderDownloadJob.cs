@@ -24,18 +24,25 @@ namespace WowSimpleLadder.BLL.QuartzJobs
         {
             try
             {
-                IEnumerable<PvpApiRowModel> ladderRows = await _wowApiClient.GetAllPvpLadderRowsAsync();
-                var pvpApiRowModelsArray = ladderRows as PvpApiRowModel[] ?? ladderRows.ToArray();
-
-                if (!pvpApiRowModelsArray.Any())
+                using (var repository = new WowLadderLiteDbRepository(SimpleLadderConfig.WowLadderLiteDbConnection))
                 {
-                  return;
+                    if (repository.IsDownloadedToday)
+                    {
+                        return;
+                    }
+                }
+
+                IEnumerable<PvpApiRowModel> ladderRows = await _wowApiClient.GetAllPvpLadderRowsAsync();
+
+                if (!ladderRows.Any())
+                {
+                    return;
                 }
 
                 using (var wowLadderRepository = new WowLadderLiteDbRepository(SimpleLadderConfig.WowLadderLiteDbConnection))
                 {
                     await wowLadderRepository.RemoveAllRecordsAsync();
-                    await wowLadderRepository.CreateAsync(pvpApiRowModelsArray);
+                    await wowLadderRepository.CreateAsync(ladderRows);
                 }
             }
             catch (Exception e)

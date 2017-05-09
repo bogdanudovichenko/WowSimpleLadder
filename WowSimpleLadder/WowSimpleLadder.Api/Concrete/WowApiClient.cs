@@ -22,7 +22,7 @@ namespace WowSimpleLadder.Api.Concrete
         /// <summary>
         /// Return pvp world of warcraft ladder data from official blizzard web api for all local and brackets
         /// </summary>
-        public async Task<IEnumerable<PvpApiRowModel>> GetAllPvpLadderRowsAsync()
+        public async Task<IReadOnlyList<PvpApiRowModel>> GetAllPvpLadderRowsAsync()
         {
             var result = new List<PvpApiRowModel>();
 
@@ -62,7 +62,7 @@ namespace WowSimpleLadder.Api.Concrete
         /// <param name="locale">BlizzardLocale.All is invalid param for this method</param>
         /// <param name="bracket">WowPvpBracket.All is invalid param for this method</param>
         /// <returns></returns>
-        public async Task<IEnumerable<PvpApiRowModel>> GetPvpLadderRowsAsync(BlizzardLocale locale, WowPvpBracket bracket)
+        public async Task<IReadOnlyList<PvpApiRowModel>> GetPvpLadderRowsAsync(BlizzardLocale locale, WowPvpBracket bracket)
         {
             if (locale == BlizzardLocale.All)
             {
@@ -88,6 +88,8 @@ namespace WowSimpleLadder.Api.Concrete
                     foreach (var row in rows.Rows)
                     {
                         row.Locale = (byte)locale;
+                        row.DownloadedOn = DateTime.Now;
+                        row.Bracket = (byte)bracket;
                     }
 
                     return rows.Rows;

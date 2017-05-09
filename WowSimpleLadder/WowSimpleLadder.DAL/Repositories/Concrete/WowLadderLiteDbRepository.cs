@@ -11,56 +11,49 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
     public class WowLadderLiteDbRepository : IWowLadderRepository, IDisposable
     {
         private readonly LiteRepository _liteDbRepo;
-        private readonly LiteDatabase _liteDb;
 
         public WowLadderLiteDbRepository(string connection)
         {
             _liteDbRepo = new LiteRepository(connection);
-            _liteDb = new LiteDatabase(connection);
         }
 
-        public Task<IEnumerable<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
+        public Task<IReadOnlyList<PvpApiRowModel>> GetAsync(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
             return Task.Run(() => Get(locale, bracket, wowClass, spec, skip, take));
         }
 
-        public IEnumerable<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
+        public IReadOnlyList<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All,
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100)
         {
-            var collection = _liteDb.GetCollection<PvpApiRowModel>();
+            var query = _liteDbRepo.Query<PvpApiRowModel>();
 
-            Query filterQuery;
-
-            if (locale != BlizzardLocale.All && bracket != WowPvpBracket.All)
+            if (locale != BlizzardLocale.All)
             {
-                var localeFilterQuery = Query.EQ("Locale", new BsonValue((int)locale));
-                var bracketFilterQuery = Query.EQ("Bracket", new BsonValue((int)bracket));
-                filterQuery = Query.And(localeFilterQuery, bracketFilterQuery);
-            }
-            else if (locale != BlizzardLocale.All)
-            {
-                filterQuery = Query.EQ("Locale", new BsonValue((int)locale));
-            }
-            else if (bracket != WowPvpBracket.All)
-            {
-                filterQuery = Query.EQ("Bracket", new BsonValue((int) bracket));
-            }
-            else
-            {
-                filterQuery = Query.All();
+                query = query.Where(row => row.Locale == (int)locale);
             }
 
-            var ratingOrderQuery = Query.All("Rating");
-            var nameOrderQuery = Query.All("Name");
-            var parentOrderQuery = Query.And(ratingOrderQuery, nameOrderQuery);
+            if (bracket != WowPvpBracket.All)
+            {
+                query = query.Where(row => row.Bracket == (int)bracket);
+            }
 
-            var parentQuery = Query.And(filterQuery, parentOrderQuery);
+            if (spec != WowSpec.All)
+            {
+                query = query.Where(row => row.SpecId == (int) spec);
+            }
 
-            var result = collection.Find(parentQuery, (int)skip, (int)take);
+            query = query.Where(Query.All("Rating"))
+                         .Where(Query.All("Name"))
+                         .Skip((int)skip)
+                         .Limit((int)take);
 
+            IReadOnlyList<PvpApiRowModel> result = query.ToList();
+            
             return result;
         }
+
+        public bool IsDownloadedToday => _liteDbRepo.FirstOrDefault<PvpApiRowModel>()?.DownloadedOn.Date == DateTime.Today;
 
         public Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows)
         {
