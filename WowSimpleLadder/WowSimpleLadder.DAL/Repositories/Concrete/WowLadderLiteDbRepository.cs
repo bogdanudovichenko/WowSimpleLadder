@@ -8,7 +8,7 @@ using WowSimpleLadder.Models.Enums;
 
 namespace WowSimpleLadder.DAL.Repositories.Concrete
 {
-    public class WowLadderLiteDbRepository : IWowLadderRepository, IDisposable
+    public class WowLadderLiteDbRepository : IWowLadderRepository
     {
         private readonly LiteRepository _liteDbRepo;
 
@@ -30,17 +30,22 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
 
             if (locale != BlizzardLocale.All)
             {
-                query = query.Where(row => row.Locale == (int)locale);
+                query = query.Where(row => row.Locale == (byte)locale);
             }
 
             if (bracket != WowPvpBracket.All)
             {
-                query = query.Where(row => row.Bracket == (int)bracket);
+                query = query.Where(row => row.Bracket == (byte)bracket);
+            }
+
+            if (wowClass != WowClass.All)
+            {
+                query = query.Where(row => row.ClassId == (byte)wowClass);
             }
 
             if (spec != WowSpec.All)
             {
-                query = query.Where(row => row.SpecId == (int) spec);
+                query = query.Where(row => row.SpecId == (ushort)spec);
             }
 
             query = query.Where(Query.All("Rating"))
@@ -49,7 +54,7 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
                          .Limit((int)take);
 
             IReadOnlyList<PvpApiRowModel> result = query.ToList();
-            
+
             return result;
         }
 

@@ -10,8 +10,6 @@
                     return "2v2";
                 case WowPvpBracket.ThreeVs3:
                     return "3v3";
-                case WowPvpBracket.FiveVs5:
-                    return "5v5";
                 case WowPvpBracket.Rbg:
                     return "rbg";
                 default:
@@ -28,10 +26,6 @@
             if (bracketName == WowPvpBracket.ThreeVs3.ToString())
             {
                 return "3v3";
-            }
-            if (bracketName == WowPvpBracket.FiveVs5.ToString())
-            {
-                return "5v5";
             }
             if (bracketName == WowPvpBracket.Rbg.ToString())
             {

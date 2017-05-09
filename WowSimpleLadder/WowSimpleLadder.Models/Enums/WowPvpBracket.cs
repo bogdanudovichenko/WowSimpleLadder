@@ -4,7 +4,6 @@
     {
         TwoVs2,
         ThreeVs3,
-        FiveVs5,
         Rbg,
         All = byte.MaxValue
     }
