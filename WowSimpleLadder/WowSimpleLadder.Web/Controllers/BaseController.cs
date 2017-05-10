@@ -36,9 +36,6 @@ namespace WowSimpleLadder.Web.Controllers
             QueryStringParsed = QueryStringParser.Parse(Url.Query);
         }
 
-        public virtual void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Dispose();
     }
 }
