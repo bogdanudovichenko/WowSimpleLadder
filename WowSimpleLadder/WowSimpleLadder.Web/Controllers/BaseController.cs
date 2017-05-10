@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using WowSimpleLadder.Web.Helpers;
+using WowSimpleLadder.Web.Routers;
 
 namespace WowSimpleLadder.Web.Controllers
 {
@@ -12,10 +13,17 @@ namespace WowSimpleLadder.Web.Controllers
         protected HttpRequest HttpRequest { get; }
         protected HttpResponse HttpResponse { get; }
         protected Uri Url { get; }
+        protected AbstractRouter Router { get; }
+
         protected IDictionary<string, string> QueryStringParsed { get; }
 
-        protected BaseController(HttpContext httpContext, HttpTaskAsyncHandler httpHandler)
+        protected BaseController(AbstractRouter router, HttpContext httpContext, HttpTaskAsyncHandler httpHandler)
         {
+            if (router == null)
+            {
+                throw new ArgumentNullException(nameof(router));
+            }
+
             if (httpContext == null)
             {
                 throw new ArgumentNullException(nameof(httpContext));
@@ -33,7 +41,8 @@ namespace WowSimpleLadder.Web.Controllers
 
             Url = HttpRequest.Url;
 
-            QueryStringParsed = QueryStringParser.Parse(Url.Query);
+            Router = router;
+            QueryStringParsed = Router.QueryStringParsed;
         }
 
         public abstract void Dispose();

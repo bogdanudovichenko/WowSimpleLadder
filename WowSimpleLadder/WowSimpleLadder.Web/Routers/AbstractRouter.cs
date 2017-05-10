@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
+using WowSimpleLadder.Web.Helpers;
 
 namespace WowSimpleLadder.Web.Routers
 {
@@ -8,6 +10,7 @@ namespace WowSimpleLadder.Web.Routers
     {
         protected HttpContext HttpContext { get; }
         protected HttpTaskAsyncHandler HttpHandler { get; }
+        public IDictionary<string, string> QueryStringParsed { get; }
 
         protected AbstractRouter(HttpContext httpContext, HttpTaskAsyncHandler httpHandler)
         {
@@ -23,6 +26,8 @@ namespace WowSimpleLadder.Web.Routers
 
             HttpContext = httpContext;
             HttpHandler = httpHandler;
+
+            QueryStringParsed = QueryStringParser.Parse(HttpContext.Request.Url.Query);
         }
 
         public abstract Task ExecuteAsync(string methodName);

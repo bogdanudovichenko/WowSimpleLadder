@@ -29,13 +29,13 @@ namespace WowSimpleLadder.Web.Models.QueryModels
             if (parametrs.ContainsKey("specid"))
             {
                 WowSpec specId;
-                SpecId = Enum.TryParse("specid", out specId) ? specId : WowSpec.All;
+                WowSpecId = Enum.TryParse("specid", out specId) ? specId : WowSpec.All;
             }
         }
 
         public BlizzardLocale Locale { get; set; } = BlizzardLocale.All;
         public WowPvpBracket PvpBracket { get; set; } = WowPvpBracket.All;
         public WowClass WowClass { get; set; } = WowClass.All;
-        public WowSpec SpecId { get; set; } = WowSpec.All;
+        public WowSpec WowSpecId { get; set; } = WowSpec.All;
     }
 }

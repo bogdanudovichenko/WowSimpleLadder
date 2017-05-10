@@ -4,6 +4,7 @@ using System.Web;
 using WowSimpleLadder.Configuration;
 using WowSimpleLadder.DAL.Repositories.Concrete;
 using WowSimpleLadder.Web.Controllers;
+using WowSimpleLadder.Web.Models.QueryModels;
 
 namespace WowSimpleLadder.Web.Routers
 {
@@ -14,7 +15,7 @@ namespace WowSimpleLadder.Web.Routers
         public WowPvpLadderControllerRouter(HttpContext httpContext, HttpTaskAsyncHandler httpHandler)
             : base(httpContext, httpHandler)
         {
-            _wowPvpLadderController = new WowPvpLadderController(HttpContext, HttpHandler,
+            _wowPvpLadderController = new WowPvpLadderController(this, HttpContext, HttpHandler,
                 new WowLadderLiteDbRepository(SimpleLadderConfig.WowLadderLiteDbConnection));
         }
 
@@ -22,14 +23,26 @@ namespace WowSimpleLadder.Web.Routers
         {
             if (methodName.ToLower() == "getpvpladder")
             {
-                string jsonResult = await _wowPvpLadderController.GetPvpLadder();
-                HttpContext.Response.ContentType = "application/json";
-                HttpContext.Response.Write(jsonResult);
+                await ExecuteGetPvpLadderMethodAsync();
             }
             else
             {
                 throw new Exception($"Can`t find method with name '{methodName}' in '{nameof(WowPvpLadderController)}'");
             }
+        }
+
+        // api/WowPvpLadderController/getpvpladder/
+        private async Task ExecuteGetPvpLadderMethodAsync()
+        {
+            var queryModel = new WowLadderQueryModel(QueryStringParsed);
+            string jsonResult = await _wowPvpLadderController.GetPvpLadder(queryModel);
+            SendJsonResult(jsonResult);
+        }
+
+        private void SendJsonResult(string jsonResult)
+        {
+            HttpContext.Response.ContentType = "application/json";
+            HttpContext.Response.Write(jsonResult);
         }
 
         public override void Dispose()

@@ -6,6 +6,7 @@ using WowSimpleLadder.DAL.Repositories.Interfaces;
 using WowSimpleLadder.Models.ApiModels;
 using WowSimpleLadder.Models.ApiModels.Extensions;
 using WowSimpleLadder.Web.Models.QueryModels;
+using WowSimpleLadder.Web.Routers;
 
 namespace WowSimpleLadder.Web.Controllers
 {
@@ -13,8 +14,8 @@ namespace WowSimpleLadder.Web.Controllers
     {
         private readonly IWowLadderRepository _wowLadderRepository;
 
-        public WowPvpLadderController(HttpContext httpContext, HttpTaskAsyncHandler httpHandler, IWowLadderRepository wowLadderRepository)
-            : base(httpContext, httpHandler)
+        public WowPvpLadderController(AbstractRouter router, HttpContext httpContext, HttpTaskAsyncHandler httpHandler, IWowLadderRepository wowLadderRepository)
+            : base(router, httpContext, httpHandler)
         {
             if (wowLadderRepository == null)
             {
@@ -24,15 +25,18 @@ namespace WowSimpleLadder.Web.Controllers
             _wowLadderRepository = wowLadderRepository;
         }
 
-        public async Task<string> GetPvpLadder()
+        public async Task<string> GetPvpLadder(WowLadderQueryModel queryModel)
         {
-            var queryModel = new WowLadderQueryModel(QueryStringParsed);
+            if (queryModel == null)
+            {
+                throw new ArgumentNullException(nameof(queryModel));
+            }
 
             IReadOnlyList<PvpApiRowModel> rows = await _wowLadderRepository.GetAsync(
                 queryModel.Locale, 
                 queryModel.PvpBracket, 
                 queryModel.WowClass, 
-                queryModel.SpecId);
+                queryModel.WowSpecId);
 
             return rows.ToJson();
         }
