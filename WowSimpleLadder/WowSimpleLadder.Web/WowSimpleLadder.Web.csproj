@@ -90,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
+    <Content Include="Scripts\src\Modules\ajax_module.min.js" />
+    <Content Include="Scripts\src\Modules\ajax_module.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
