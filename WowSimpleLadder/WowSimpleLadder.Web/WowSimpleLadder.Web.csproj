@@ -78,6 +78,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\entireframework.min.css" />
+    <Content Include="Css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="App_Data\WowLadder.db" />
@@ -90,8 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
+    <Content Include="Scripts\src\app.js" />
     <Content Include="Scripts\src\Modules\ajax_module.min.js" />
     <Content Include="Scripts\src\Modules\ajax_module.js" />
+    <Content Include="Scripts\src\Modules\Controls\TabsControl.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
