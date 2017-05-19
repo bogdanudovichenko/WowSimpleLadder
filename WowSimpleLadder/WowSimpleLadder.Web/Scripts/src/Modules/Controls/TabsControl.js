@@ -1,7 +1,7 @@
 ﻿; (function () {
     var maxTabsCount = 12;
 
-    var TabsControl = function (selector, options) {
+    function TabsControl(selector, options) {
 
         if (!selector) {
             throw 'selector is null or empty';
@@ -30,9 +30,9 @@
         return this;
     }
 
-    window.TabsControl = TabsControl;//export TabControl
+    window.TabsControl = TabsControl;
 
-    TabsControl.prototype.update = function (tabs) {
+    TabsControl.prototype.update = function(tabs) {
         if (!Array.isArray(tabs)) {
             throw 'tabs must be array';
         }
@@ -43,9 +43,26 @@
 
         this._tabs = tabs;
         this._render();
-    }
+    };
 
-    TabsControl.prototype._render = function () {
+
+    TabsControl.prototype.getCurentTabValue = function () {
+        var tabsDiv = document.querySelector(this._selector);
+
+        if (!tabsDiv) {
+            return null;
+        }
+
+        var currentTab = tabsDiv.querySelector('.current-tab');
+
+        if (!currentTab) {
+            return null;
+        }
+
+
+    };
+
+    TabsControl.prototype._render = function() {
         var selector = this._selector;
 
         if (!selector) {
@@ -66,9 +83,9 @@
         }
 
         targetToRender.appendChild(tabsControlWrapper);
-    }
+    };
 
-    TabsControl.prototype._createTabs = function (tabs, tabsWrapper) {
+    TabsControl.prototype._createTabs = function(tabs, tabsWrapper) {
         var tabsCount = tabs.length;
 
         if (!tabsCount) {
@@ -79,33 +96,47 @@
 
         var options = this._options;
 
+        var tabsDivArr = [];
 
         for (var i = 0; i < tabsCount; i++) {
             var tab = tabs[i];
             var tabDiv = this._createTabDiv(tab, tabColSize);
+            tabsDivArr.push(tabDiv);
 
-            tabDiv.addEventListener('click', function () {
-                var hiddenSpan = this.querySelector('span.hidden-tab-value');
-                var displaySpan = this.querySelector('span.display-tab-value');
+            tabDiv.addEventListener('click',
+                function() {
+                    var hiddenSpan = this.querySelector('span.hidden-tab-value');
+                    var displaySpan = this.querySelector('span.display-tab-value');
 
-                var event = {
-                    target: this,
-                    value: hiddenSpan.textContent,
-                    displayValue: displaySpan.textContent
-                };
+                    for (var i = 0; i < tabsDivArr.length; i++) {
+                        var tabDivBuf = tabsDivArr[i];
+                        if (tabDivBuf.classList.contains('current-tab')) {
+                            tabDivBuf.classList.remove('current-tab');
+                        }
+                    }
 
-                var onclick = options.onclick;
+                    this.classList.add('current-tab');
 
-                if (typeof (onclick) === 'function') {
-                    onclick(event);
-                }
-            });
+                    var event = {
+                        target: this,
+                        value: hiddenSpan.textContent,
+                        displayValue: displaySpan.textContent
+                    };
+
+                    var onclick = options.onclick;
+
+                    if (typeof (onclick) === 'function') {
+                        onclick(event);
+                    }
+                });
 
             tabsWrapper.appendChild(tabDiv);
         }
-    }
 
-    TabsControl.prototype._createTabDiv = function (tab, colSize) {
+        return true;
+    };
+
+    TabsControl.prototype._createTabDiv = function(tab, colSize) {
         if (!tab) {
             throw 'Tab cannot be null or empty';
         }
@@ -133,7 +164,7 @@
         //end hidden span creation
 
         return tabDiv;
-    }
+    };
 
     function countColSize(tabsCount) {
         if (!tabsCount || tabsCount < 1 || tabsCount > maxTabsCount) {

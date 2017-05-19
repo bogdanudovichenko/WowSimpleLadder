@@ -14,10 +14,16 @@
         }
     ];
 
+    var store = new Store({ tabs: tabs });
+
     var tabsControl = new TabsControl('#bracket-wrapper', {
         tabs: tabs,
-        onclick: function(ev) {
-            debugger;
+        onclick: function (ev) {
+            store.setState('currentWowPvpBracket', ev.value);
         }
+    });
+
+    store.addOnChangeEventListener(function(ev) {
+        debugger;
     });
 });
