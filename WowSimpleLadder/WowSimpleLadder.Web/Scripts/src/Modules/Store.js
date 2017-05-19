@@ -1,7 +1,7 @@
 ﻿; (function () {
 
     function Store(defaultState) {
-        if (typeof(defaultState) !== 'object') {
+        if (typeof (defaultState) !== 'object') {
             throw 'defaultState must be an object';
         }
 
@@ -17,7 +17,7 @@
 
     window.Store = Store;
 
-    Store.prototype.getAllState = function() {
+    Store.prototype.getAllState = function () {
         return Object.assign({}, this._state);
     };
 
@@ -32,7 +32,11 @@
 
         var value = this._state[key];
 
-        return typeof(value) !== 'object' ? value : Object.assign({}, value);
+        if (Array.isArray(value)) {
+            return Object.assign([], value);
+        }
+
+        return typeof (value) !== 'object' ? value : Object.assign({}, value);
     };
 
     Store.prototype.setState = function (key, value) {
@@ -48,7 +52,14 @@
             throw 'value cannot be null or empty';
         }
 
-        var valueToSet = typeof (value) !== 'object' ? value : Object.assign({}, value);
+        var valueToSet = value;
+
+        if (Array.isArray(value)) {
+            valueToSet = Object.assign([], value);
+        } else {
+            valueToSet = typeof (value) !== 'object' ? value : Object.assign({}, value);
+        }
+
         this._state[key] = valueToSet;
 
         var event = {
@@ -66,8 +77,8 @@
         }
     };
 
-    Store.prototype.addOnChangeEventListener = function(eventListener) {
-        if (typeof(eventListener) !== 'function') {
+    Store.prototype.addOnChangeEventListener = function (eventListener) {
+        if (typeof (eventListener) !== 'function') {
             throw 'eventListener must be a function';
         }
 

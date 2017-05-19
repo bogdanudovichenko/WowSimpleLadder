@@ -17,7 +17,7 @@
     var store = new Store({ tabs: tabs });
 
     var tabsControl = new TabsControl('#bracket-wrapper', {
-        tabs: tabs,
+        tabs: store.getState('tabs'),
         onclick: function (ev) {
             store.setState('currentWowPvpBracket', ev.value);
         }
