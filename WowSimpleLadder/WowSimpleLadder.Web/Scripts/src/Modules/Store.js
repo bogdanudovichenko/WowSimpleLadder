@@ -52,7 +52,7 @@
             throw 'value cannot be null or empty';
         }
 
-        var valueToSet = value;
+        var valueToSet;
 
         if (Array.isArray(value)) {
             valueToSet = Object.assign([], value);
