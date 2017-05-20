@@ -3,7 +3,6 @@
     window.ajax = ajax;
 
     ajax.httpGet = function (url, params, onSuccess, onError) {
-
         if (!url) {
             throw 'url is null or empty';
         }
@@ -70,7 +69,7 @@
                 continue;
             }
 
-            var buf = paramsKey + '=' + paramsValue;
+            var buf = paramsKey.toLowerCase() + '=' + paramsValue;
 
             if (i + 1 !== paramsCount) {
                 buf += '&';

@@ -15,7 +15,12 @@
         }
     ];
 
-    var store = new Store({ tabs: tabs });
+    var store = new Store({ 
+        tabs: tabs,
+        currentWowPvpBracket: 0
+     });
+
+    renderLadder(store);
 
     var tabsControl = new TabsControl('#bracket-wrapper', {
         tabs: store.getState('tabs'),
@@ -24,7 +29,21 @@
         }
     });
 
-    store.addOnChangeEventListener(function(ev) {
-
+    store.addOnChangeEventListener(function (ev) {
+        renderLadder(ev.store);
     });
+
+    function renderLadder(store) {
+        var state = store.getAllState();
+
+        var params = {
+            pvpBracket: state.currentWowPvpBracket
+        };
+
+        apiService.getPvpLadder(params, function (data) {
+            console.log('data', data);
+        }, function (err) {
+            console.error(err)
+        });
+    }
 });
