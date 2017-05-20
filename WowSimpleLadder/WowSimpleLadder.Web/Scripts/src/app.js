@@ -15,10 +15,10 @@
         }
     ];
 
-    var store = new Store({ 
+    var store = new Store({
         tabs: tabs,
         currentWowPvpBracket: 0
-     });
+    });
 
     renderLadder(store);
 
@@ -40,10 +40,16 @@
             pvpBracket: state.currentWowPvpBracket
         };
 
-        apiService.getPvpLadder(params, function (data) {
-            console.log('data', data);
-        }, function (err) {
-            console.error(err)
+        var url = apiService.formUrlForLadderGrid(params);
+
+        var gridControl = new GridControl('#content-ladder-wrapper', { 
+            url: url,
+            tableHeaders: [
+                {
+                    displayName: 'Name',
+                    logicalName: 'name'
+                }
+            ]
         });
     }
 });
