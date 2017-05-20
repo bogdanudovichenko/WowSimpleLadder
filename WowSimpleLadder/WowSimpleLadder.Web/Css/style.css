@@ -1,4 +1,27 @@
-﻿#wrapper {
-    width: 900px;
-    margin: 0 auto;
+﻿body {
+    background-image: url("../Content/bg.jpg");
 }
+
+.tabs-control-wrapper {
+    background: #322500;
+}
+
+    .tabs-control-wrapper .tab-contol-wrapper {
+        text-align: center;
+        color: #F8B700;
+        height: 51px;
+        padding-top: 31px;
+        font-weight: 700;
+        font-family: "Semplicita Pro","Open Sans",Arial,Helvetica,sans-serif;
+    }
+
+        .tabs-control-wrapper .tab-contol-wrapper:hover {
+            background: #F8B700;
+            color: #211510;
+            cursor: pointer;
+        }
+
+    .tabs-control-wrapper .current-tab {
+        background: #F8B700;
+        color: #211510
+    }

@@ -2,7 +2,8 @@
     var tabs = [
         {
             displayValue: '2v2 Arena',
-            value: 0
+            value: 0,
+            selected: true
         },
         {
             displayValue: '3v3 Arena',

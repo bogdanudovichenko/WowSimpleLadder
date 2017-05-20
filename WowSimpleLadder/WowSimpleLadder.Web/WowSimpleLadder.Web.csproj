@@ -78,6 +78,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bg.jpg" />
     <Content Include="Css\entireframework.min.css" />
     <Content Include="Css\style.css" />
     <Content Include="Global.asax" />

@@ -101,6 +101,11 @@
         for (var i = 0; i < tabsCount; i++) {
             var tab = tabs[i];
             var tabDiv = this._createTabDiv(tab, tabColSize);
+
+            if(tab.selected) {
+                tabDiv.classList.add('current-tab');
+            }
+
             tabsDivArr.push(tabDiv);
 
             tabDiv.addEventListener('click',
