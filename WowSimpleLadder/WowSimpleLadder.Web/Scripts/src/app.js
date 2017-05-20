@@ -25,6 +25,6 @@
     });
 
     store.addOnChangeEventListener(function(ev) {
-        debugger;
+
     });
 });

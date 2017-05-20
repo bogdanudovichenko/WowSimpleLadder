@@ -6,6 +6,11 @@ namespace WowSimpleLadder.Web.Models.QueryModels
 {
     public class WowLadderQueryModel
     {
+        public BlizzardLocale Locale { get; set; } = BlizzardLocale.All;
+        public WowPvpBracket PvpBracket { get; set; } = WowPvpBracket.All;
+        public WowClass WowClass { get; set; } = WowClass.All;
+        public WowSpec WowSpecId { get; set; } = WowSpec.All;
+
         public WowLadderQueryModel(IDictionary<string, string> parametrs)
         {
             if (parametrs.ContainsKey("locale"))
@@ -32,10 +37,5 @@ namespace WowSimpleLadder.Web.Models.QueryModels
                 WowSpecId = Enum.TryParse("specid", out specId) ? specId : WowSpec.All;
             }
         }
-
-        public BlizzardLocale Locale { get; set; } = BlizzardLocale.All;
-        public WowPvpBracket PvpBracket { get; set; } = WowPvpBracket.All;
-        public WowClass WowClass { get; set; } = WowClass.All;
-        public WowSpec WowSpecId { get; set; } = WowSpec.All;
     }
 }
