@@ -35,11 +35,11 @@
 
         ajax.httpGet(this._url, null, function (data) {
 
-            if(!data) {
+            if (!data) {
                 return;
             }
 
-            if(!Array.isArray(data)) {
+            if (!Array.isArray(data)) {
                 throw 'data must be array';
             }
 
@@ -67,15 +67,19 @@
         var tableHeader = this._createTableHeader();
         table.appendChild(tableHeader);
 
+        var tableBody = this._createTableBody();
+        table.appendChild(tableBody);
+
         return table;
     }
 
     GridControl.prototype._createTableHeader = function () {
         var thead = document.createElement('thead');
+        thead.classList.add('grid-header');
 
         var tableHeaders = this._tableHeaders;
 
-        if(!tableHeaders || !Array.isArray(tableHeaders)){
+        if (!tableHeaders || !Array.isArray(tableHeaders)) {
             tableHeaders = formTableHeadersFromData(this._data);
             this._tableHeaders = tableHeaders;
         }
@@ -84,7 +88,7 @@
 
         var length = tableHeaders.length;
 
-        for(var i = 0; i < length; i++) {
+        for (var i = 0; i < length; i++) {
             var tableHeader = tableHeaders[i];
             var th = this._createTh(tableHeader);
             tr.appendChild(th);
@@ -95,17 +99,80 @@
         return thead;
     }
 
-    function formTableHeadersFromData (data) {
-        if(!data || !Array.isArray(data)) {
+    GridControl.prototype._createTableBody = function () {
+        var tbody = document.createElement('tbody');
+        tbody.classList.add('grid-body');
+
+        var data = this._data;
+        var dataLength = data.length;
+
+        for(var i = 0; i < dataLength; i++) {
+            var item = data[i];
+            var tr = this._createBodyTr(item);
+            tbody.appendChild(tr);
+        }
+
+        return tbody;
+    }
+
+    GridControl.prototype._createBodyTr = function (item) {
+        if(!item) {
+            throw 'item cannot be null or empty';
+        }
+
+        if(typeof(item) !== 'object') {
+            throw 'item must be an object';
+        }
+
+        var tr = document.createElement('tr');
+        tr.classList.add('grid-row');
+
+        var headers = this._tableHeaders.map(h => h.logicalName);
+        var headersLength = headers.length;
+
+        var itemWithSortedKeys = {};
+
+        for(var i = 0; i < headersLength; i++) {
+            var header = headers[i];
+            var value = item[header];
+            value = !value ? '' : value;
+            
+            var td = this._createBodyTd(header, value);
+            tr.appendChild(td);
+        }
+
+        return tr;
+    }
+
+    GridControl.prototype._createBodyTd = function(key, value) {
+        var keySpan = document.createElement('span');
+        keySpan.classList.add('grid-td-key-span');
+        keySpan.style.visibility = 'hidden';
+        keySpan.textContent = key;
+
+        var displaySpan = document.createElement('span');
+        displaySpan.classList.add('grid-td-display-span');
+        displaySpan.textContent = value;
+
+        var td = document.createElement('td');
+        td.classList.add('grid-body-td');
+        td.appendChild(displaySpan);
+        td.appendChild(keySpan);        
+
+        return td;
+    }
+
+    function formTableHeadersFromData(data) {
+        if (!data || !Array.isArray(data)) {
             return [];
         }
 
         var keys = Object.keys(data[0]);
         var headersCount = keys.length;
 
-        var headers  = [];
+        var headers = [];
 
-        for(var i = 0; i < headersCount; i++) {
+        for (var i = 0; i < headersCount; i++) {
             headers.push({
                 logicalName: keys[i],
                 displayName: keys[i]
@@ -115,12 +182,12 @@
         return headers;
     }
 
-    GridControl.prototype._createTh = function (header) {        
-        if(!header) {
+    GridControl.prototype._createTh = function (header) {
+        if (!header) {
             throw 'header is null or empty';
         }
 
-        if(typeof(header) !== 'object') {
+        if (typeof (header) !== 'object') {
             throw 'header must be an object';
         }
 

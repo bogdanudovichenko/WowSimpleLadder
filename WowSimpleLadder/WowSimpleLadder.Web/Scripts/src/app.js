@@ -48,6 +48,10 @@
                 {
                     displayName: 'Name',
                     logicalName: 'name'
+                }, 
+                {
+                    displayName: 'Rating',
+                    logicalName: 'rating'
                 }
             ]
         });
