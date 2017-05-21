@@ -42,13 +42,25 @@
 
         var url = apiService.formUrlForLadderGrid(params);
 
-        var gridControl = new GridControl('#content-ladder-wrapper', { 
+        var gridControl = new GridControl('#content-ladder-wrapper', {
             url: url,
             tableHeaders: [
                 {
                     displayName: 'Name',
                     logicalName: 'name'
-                }, 
+                },
+                {
+                    displayName: 'Realm',
+                    logicalName: 'realmName'
+                },
+                {
+                    displayName: 'Wins',
+                    logicalName: 'seasonWins'
+                },
+                {
+                    displayName: 'Losses',
+                    logicalName: 'seasonLosses'
+                },
                 {
                     displayName: 'Rating',
                     logicalName: 'rating'

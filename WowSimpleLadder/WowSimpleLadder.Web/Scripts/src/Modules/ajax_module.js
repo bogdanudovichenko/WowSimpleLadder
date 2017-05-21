@@ -51,7 +51,7 @@
         var paramsKeys = Object.keys(params);
         var paramsCount = paramsKeys.length;
 
-        if (paramsCount === 0) {
+        if (paramsCount === 0 && paramsValue !== 0) {
             return resultUrl;
         }
 

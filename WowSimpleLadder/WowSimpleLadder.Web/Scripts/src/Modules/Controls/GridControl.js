@@ -63,6 +63,7 @@
     GridControl.prototype._createTable = function () {
         var table = document.createElement('table');
         table.classList.add('table');
+        table.classList.add('grid-control-table');
 
         var tableHeader = this._createTableHeader();
         table.appendChild(tableHeader);

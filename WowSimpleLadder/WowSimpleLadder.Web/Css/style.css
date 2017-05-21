@@ -2,6 +2,7 @@
     background-image: url("../Content/bg.jpg");
 }
 
+/*start tab control styles*/
 .tabs-control-wrapper {
     background: #322500;
 }
@@ -25,3 +26,24 @@
         background: #F8B700;
         color: #211510
     }
+/*end tab contol styles*/
+
+/*start grid control styles*/
+
+.grid-control-table {
+    border-collapse: collapse;
+}
+
+    .grid-control-table tbody {
+        color: #b1997f;
+    }
+
+        .grid-control-table tbody > tr.grid-row:nth-child(odd) {
+            background: #ddd;
+            background: rgba(255,255,255,.04);
+        }
+
+    .grid-control-table .grid-header span.grid-display-header-element-value {
+        color: #F7B600;
+    }
+/*end grid control styles*/

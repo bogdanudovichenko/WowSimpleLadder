@@ -46,7 +46,7 @@
             var paramsKey = paramsKeys[i];
             var paramsValue = params[paramsKey];
 
-            if (!paramsValue) {
+            if (!paramsValue && paramsValue !== 0) {
                 continue;
             }
 
