@@ -84,6 +84,7 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="App_Data\WowLadder.db" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
