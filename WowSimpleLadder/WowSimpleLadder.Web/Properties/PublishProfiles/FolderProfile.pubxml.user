@@ -6,12 +6,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+    <_NewBackgroundProfile>False</_NewBackgroundProfile>
     <_PublishTargetUrl>D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Web\bin\Release\PublishOutput</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/WowLadder.db">
       <publishTime>05/21/2017 00:34:59</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>05/23/2017 08:53:23</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>05/23/2017 08:53:23</publishTime>
     </File>
     <File Include="bin/Common.Logging.Core.dll">
       <publishTime>11/14/2015 13:35:30</publishTime>
@@ -170,7 +176,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2017 06:41:03</publishTime>
     </File>
     <File Include="Css/style.css">
-      <publishTime>05/21/2017 13:22:17</publishTime>
+      <publishTime>05/23/2017 08:52:11</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/09/2017 11:07:04</publishTime>
@@ -180,6 +186,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="packages.config">
       <publishTime>05/07/2017 10:37:07</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>05/23/2017 08:53:16</publishTime>
     </File>
     <File Include="Scripts/src/app.js">
       <publishTime>05/21/2017 13:12:20</publishTime>
@@ -203,7 +212,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2017 10:06:03</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/23/2017 08:30:12</publishTime>
+      <publishTime>05/23/2017 08:53:14</publishTime>
     </File>
   </ItemGroup>
 </Project>
