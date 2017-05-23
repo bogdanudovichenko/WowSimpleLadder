@@ -22,11 +22,24 @@
 
     renderLadder(store);
 
-    var tabsControl = new TabsControl('#bracket-wrapper', {
+    var bracketTabsControl = new TabsControl('#bracket-wrapper', {
         tabs: store.getState('tabs'),
         onclick: function (ev) {
             store.setState('currentWowPvpBracket', ev.value);
         }
+    });
+
+    var classesDropDownControl = new DropDownControl('#wow-classes-drop-down-wrapper', {
+        data: [
+            {
+                displayValue: 'Dk',
+                value: 0
+            },
+            {
+                displayValue: 'Paladin',
+                value: 1
+            }
+        ]
     });
 
     store.addOnChangeEventListener(function (ev) {

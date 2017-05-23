@@ -98,6 +98,7 @@
     <Content Include="Scripts\src\Modules\ajax_module.min.js" />
     <Content Include="Scripts\src\Modules\ajax_module.js" />
     <Content Include="Scripts\src\Modules\api_service.js" />
+    <Content Include="Scripts\src\Modules\Controls\DropDownControl.js" />
     <Content Include="Scripts\src\Modules\Controls\GridControl.js" />
     <Content Include="Scripts\src\Modules\Controls\TabsControl.js" />
     <Content Include="Scripts\src\Modules\Store.js" />
