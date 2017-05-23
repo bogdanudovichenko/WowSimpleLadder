@@ -1,28 +1,28 @@
 ; (function () {
     function DropDownControl(selector, options) {
-        if(!selector) {
+        if (!selector) {
             throw 'selector cannot be null or empty';
         }
 
-        if(typeof(selector) !== 'string') {
+        if (typeof (selector) !== 'string') {
             throw 'selector must be a string';
         }
 
-        if(!options) {
+        if (!options) {
             throw 'options cannot be null or epmty';
         }
 
-        if(typeof(options) !== 'object') {
+        if (typeof (options) !== 'object') {
             throw 'options must be an object';
         }
 
         var data = options.data;
 
-        if(!data) {
+        if (!data) {
             data = [];
         }
 
-        if(!Array.isArray(data)) {
+        if (!Array.isArray(data)) {
             throw 'data must be array';
         }
 
@@ -34,9 +34,18 @@
         return this;
     }
 
-    DropDownControl.prototype._render = function() {
-        var dropDownWrapper = document.createElement('span');
+    DropDownControl.prototype._render = function () {
+        var dropDownWrapper = document.createElement('div');
         dropDownWrapper.classList.add('drop-down-control-wrapper');
+        dropDownWrapper.setAttribute('tabindex', 1);
+
+        dropDownWrapper.addEventListener('click', function () {
+            if (!this.classList.contains('active')) {
+                this.classList.add('active');
+            } else {
+                this.classList.remove('active');
+            }
+        });
 
         var ul = document.createElement('ul');
         ul.classList.add('dropdown-control-list');
@@ -44,10 +53,10 @@
         var data = this._data;
         var dataLength = data.length;
 
-        for(var i = 0; i < dataLength; i++) {
+        for (var i = 0; i < dataLength; i++) {
             var item = data[i];
 
-            if(!item) {
+            if (!item) {
                 continue;
             }
 
@@ -59,7 +68,7 @@
 
         var targetToRender = document.querySelector(this._selector);
 
-        if(!targetToRender) {
+        if (!targetToRender) {
             console.error('dropdown cant find target to render on selector: ' + this._selector);
             return;
         }
@@ -67,8 +76,8 @@
         targetToRender.appendChild(dropDownWrapper);
     }
 
-    DropDownControl.prototype._createLi = function(item) {
-        if(!item) {
+    DropDownControl.prototype._createLi = function (item) {
+        if (!item) {
             throw 'Item cannot be null or empty';
         }
 
