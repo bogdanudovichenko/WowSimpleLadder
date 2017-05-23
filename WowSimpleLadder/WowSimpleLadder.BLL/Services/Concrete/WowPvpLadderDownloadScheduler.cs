@@ -17,7 +17,7 @@ namespace WowSimpleLadder.BLL.Services.Concrete
             ITrigger trigger = TriggerBuilder.Create()
                 .StartNow()
                 .WithSimpleSchedule(x => x
-                    .WithIntervalInMinutes(5)
+                    .WithIntervalInHours(24)
                     .RepeatForever())
                 .Build();
 
