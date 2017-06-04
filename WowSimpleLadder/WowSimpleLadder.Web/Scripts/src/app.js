@@ -81,15 +81,31 @@
                     displayName: 'Name',
                     logicalName: 'name',
                     template: function (val, item) {
-                        var url = 'https://worldofwarcraft.com/' + getBlizzardLocaleStr(item.locale) + '/character/' + item.realmName +'/' + val;
+                        var url = 'https://worldofwarcraft.com/' + getBlizzardLocaleStr(item.locale) + '/character/' + item.realmName + '/' + val;
                         url = decodeURIComponent(url);
 
                         var link = document.createElement('a');
                         link.classList.add('wow-class-name-link');
                         link.href = url;
-                        link.innerHTML = '<span class="wow-class-name" style="color:' + wowClassesList[item.classId].color +';">' + val + '</span>'
+                        link.innerHTML = '<span class="wow-class-name" style="color:' + wowClassesList[item.classId].color + ';">' + val + '</span>'
 
-                        return link.outerHTML; 
+                        return link.outerHTML;
+                    }
+                },
+                {
+                    displayName: 'Spec',
+                    logicalName: 'specId',
+                    template: function (val, item) {
+                        var specs = _.filter(wowClassesList, function (wc) { return wc.value === item.classId; })[0].specs;
+                        var spec = _.filter(specs, function (s) {
+                            return s.value == val;
+                        })[0]
+
+                        if(spec) {
+                            return spec.displayValue;
+                        } 
+
+                        return val;
                     }
                 },
                 {
@@ -114,7 +130,7 @@
 });
 
 function getBlizzardLocaleStr(locale) {
-    switch(locale) {
+    switch (locale) {
         case 0:
             return 'en-us';
         case 1:
