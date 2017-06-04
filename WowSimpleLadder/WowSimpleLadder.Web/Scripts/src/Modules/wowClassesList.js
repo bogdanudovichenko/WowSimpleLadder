@@ -7,7 +7,7 @@ var wowClassesList = [
     {
         displayValue: 'Warrior',
         value: 1,
-        color: '#C41F3B',
+        color: '#C79C6E',
         specs: [
             {
                 displayValue: 'All',
