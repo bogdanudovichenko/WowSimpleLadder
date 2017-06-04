@@ -203,7 +203,7 @@ var wowClassesList = [
             },
             {
                 displayValue: 'Demonology',
-                value: 264
+                value: 266
             },
             {
                 displayValue: 'Destruction',

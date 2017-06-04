@@ -2,8 +2,7 @@
     var tabs = [
         {
             displayValue: '2v2 Arena',
-            value: 0,
-            selected: true
+            value: 0
         },
         {
             displayValue: '3v3 Arena',
@@ -26,6 +25,7 @@
 
     var bracketTabsControl = new TabsControl('#bracket-wrapper', {
         tabs: store.getState('tabs'),
+        selectedValue: store.getState('currentWowPvpBracket'),
         onclick: function (ev) {
             store.setState('currentWowPvpBracket', ev.value);
         }
@@ -33,30 +33,43 @@
 
     var classesDropDownControl = new DropDownControl('#wow-classes-drop-down-wrapper', {
         data: wowClassesList,
-        text: 'Select class',
+        selectedValue: store.getState('selectedWowClass'),
         onChange: function (value) {
-            store.setState('selectedWowClass', value);
+            store.setMultipleStates([
+                {
+                    key: 'selectedWowClass',
+                    value: value
+                },
+                {
+                    key: 'selectedWowSpec',
+                    value: 0
+                }
+            ]);
+        }
+    });
 
-            if (!value) {
-                document.getElementById('wow-specs-drop-down-wrapper').innerHTML = '';
-                store.setState('selectedWowSpec', 0);
-                return;
-            }
+    function renderWowSpecDropDownList() {
+        var selectedWowClass = store.getState('selectedWowClass');
 
-            var wowSpecsList = _.filter(wowClassesList, function (wc) { return wc.value === value })[0].specs;
+        if (selectedWowClass) {
+            var wowSpecsList = _.filter(wowClassesList, function (wc) { return wc.value === selectedWowClass })[0].specs;
+            var selectedWowSpec = store.getState('selectedWowSpec');
 
             var specsDropDownList = new DropDownControl('#wow-specs-drop-down-wrapper', {
                 data: wowSpecsList,
-                text: 'Select spec',
+                selectedValue: selectedWowSpec,
                 onChange: function (value) {
                     store.setState('selectedWowSpec', value);
                 }
             });
         }
-    });
+    }
+
+    renderWowSpecDropDownList();
 
     store.addOnChangeEventListener(function (ev) {
         renderLadder(ev.store);
+        renderWowSpecDropDownList();
     });
 
     function renderLadder(store) {
@@ -101,9 +114,9 @@
                             return s.value == val;
                         })[0]
 
-                        if(spec) {
+                        if (spec) {
                             return spec.displayValue;
-                        } 
+                        }
 
                         return val;
                     }

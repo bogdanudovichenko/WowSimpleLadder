@@ -55,8 +55,14 @@
         var dropDownWrapper = document.createElement('div');
         dropDownWrapper.classList.add('dropdown');
 
-        var text = this._text;
+        var selectedValue = this._selectedValue;
+        var selectedItem = _.filter(this._data, function (item) { return item.value === selectedValue; })[0];
 
+        var text = this._text;
+        if (selectedValue !== -1 && selectedItem) {
+            text = selectedItem.displayValue;
+        }
+        
         var dropDownButton = document.createElement('div');
         dropDownButton.classList.add('dropbtn');
         dropDownButton.textContent = text ? text : 'Select item';

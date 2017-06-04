@@ -1,6 +1,14 @@
 ﻿; (function () {
 
     function Store(defaultState) {
+
+        var storeDataJson = localStorage.getItem('wowLadderStoreData');
+        var stateFromLocalStorage;
+
+        if (storeDataJson) {
+            stateFromLocalStorage = JSON.parse(storeDataJson);
+        }
+
         if (typeof (defaultState) !== 'object') {
             throw 'defaultState must be an object';
         }
@@ -9,7 +17,7 @@
             throw 'defaultState cannot be null';
         }
 
-        this._state = _.extend({}, defaultState);
+        this._state = _.extend({}, stateFromLocalStorage ? stateFromLocalStorage : defaultState);
         this._onChangeEventListeners = [];
 
         return this;
@@ -40,6 +48,24 @@
     };
 
     Store.prototype.setState = function (key, value) {
+        var valueToSet = this._setState(key, value);
+
+        var event = {
+            key: key,
+            value: valueToSet,
+            store: this
+        };
+
+        var onChangeListeners = this._onChangeEventListeners;
+        var onChangeListenersLength = onChangeListeners.length;
+
+        for (var i = 0; i < onChangeListenersLength; i++) {
+            var onChangeListener = onChangeListeners[i];
+            onChangeListener(event);
+        }
+    }
+
+    Store.prototype._setState = function (key, value) {
         if (typeof (key) !== 'string') {
             throw 'key must be string';
         }
@@ -62,9 +88,18 @@
 
         this._state[key] = valueToSet;
 
+        localStorage.setItem('wowLadderStoreData', JSON.stringify(this._state));
+        return valueToSet;
+    };
+
+    Store.prototype.setMultipleStates = function (states) {
+        var self = this;
+
+        _.each(states, function(state) {
+            self._setState(state.key, state.value);
+        });
+
         var event = {
-            key: key,
-            value: valueToSet,
             store: this
         };
 

@@ -24,6 +24,7 @@
         this._tabs = tabs;
         this._selector = selector;
         this._options = options;
+        this._selectedValue = options.selectedValue || options.selectedValue ===0 ? options.selectedValue : 0
 
         this._render();
 
@@ -58,8 +59,6 @@
         if (!currentTab) {
             return null;
         }
-
-
     };
 
     TabsControl.prototype._render = function() {
@@ -102,7 +101,7 @@
             var tab = tabs[i];
             var tabDiv = this._createTabDiv(tab, tabColSize);
 
-            if(tab.selected) {
+            if(tab.value === this._selectedValue) {
                 tabDiv.classList.add('current-tab');
             }
 
@@ -124,7 +123,7 @@
 
                     var event = {
                         target: this,
-                        value: hiddenSpan.textContent,
+                        value: parseInt(hiddenSpan.textContent),
                         displayValue: displaySpan.textContent
                     };
 
