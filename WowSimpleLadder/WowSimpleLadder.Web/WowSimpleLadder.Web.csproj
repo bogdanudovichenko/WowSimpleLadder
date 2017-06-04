@@ -83,7 +83,6 @@
     <Content Include="Css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
-    <Content Include="App_Data\WowLadder.db" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -102,6 +101,7 @@
     <Content Include="Scripts\src\Modules\Controls\GridControl.js" />
     <Content Include="Scripts\src\Modules\Controls\TabsControl.js" />
     <Content Include="Scripts\src\Modules\Store.js" />
+    <Content Include="Scripts\src\Modules\wowClassesList.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +140,9 @@
       <Name>WowSimpleLadder.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

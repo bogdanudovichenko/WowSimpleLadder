@@ -17,7 +17,8 @@
 
     var store = new Store({
         tabs: tabs,
-        currentWowPvpBracket: 0
+        currentWowPvpBracket: 0,
+        selectedWowClass: 0
     });
 
     renderLadder(store);
@@ -30,16 +31,11 @@
     });
 
     var classesDropDownControl = new DropDownControl('#wow-classes-drop-down-wrapper', {
-        data: [
-            {
-                displayValue: 'Dk',
-                value: 0
-            },
-            {
-                displayValue: 'Paladin',
-                value: 1
-            }
-        ]
+        data: wowClassesList,
+        text: 'Select class',
+        onChange: function(value) {
+            store.setState('selectedWowClass', value);
+        }
     });
 
     store.addOnChangeEventListener(function (ev) {
@@ -50,7 +46,8 @@
         var state = store.getAllState();
 
         var params = {
-            pvpBracket: state.currentWowPvpBracket
+            pvpBracket: state.currentWowPvpBracket,
+            wowclass: state.selectedWowClass
         };
 
         var url = apiService.formUrlForLadderGrid(params);
@@ -58,6 +55,10 @@
         var gridControl = new GridControl('#content-ladder-wrapper', {
             url: url,
             tableHeaders: [
+                {
+                    displayName: '№',
+                    logicalName: 'ranking'
+                },
                 {
                     displayName: 'Name',
                     logicalName: 'name'

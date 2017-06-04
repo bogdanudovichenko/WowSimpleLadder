@@ -35,7 +35,8 @@ namespace WowSimpleLadder.Api.Concrete
                     continue;
                 }
 
-                foreach (string bracketName in Enum.GetNames(typeof(WowPvpBracket)))
+                var brackets = Enum.GetNames(typeof(WowPvpBracket));
+                foreach (string bracketName in brackets)
                 {
                     Enum.TryParse(bracketName, out WowPvpBracket wowPvpBracket);
 

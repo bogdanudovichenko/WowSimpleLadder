@@ -48,7 +48,7 @@
             throw 'key cannot be null or empty';
         }
 
-        if (!value) {
+        if (!value && value !== 0) {
             throw 'value cannot be null or empty';
         }
 

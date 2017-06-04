@@ -27,7 +27,10 @@
         }
 
         this._data = options.data;
+        this._text = options.text;
         this._selector = selector;
+        this._selectedValue = options.selectedValue ? options.selectedValue : -1;
+        this._onChange = options.onChange;
 
         this._render();
 
@@ -35,10 +38,6 @@
     }
 
     DropDownControl.prototype._render = function () {
-        window.myFunction = function() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
         window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
 
@@ -53,14 +52,40 @@
             }
         }
 
-        var markup = `<div class="dropdown">
-                        <div onclick="myFunction()" class="dropbtn">Select class</div>
-                        <div id="myDropdown" class="dropdown-content">
-                            <span>Link 1</span>
-                            <span>Link 2</span>
-                            <span>Link 3</span>
-                        </div>
-                      </div>`;
+        var dropDownWrapper = document.createElement('div');
+        dropDownWrapper.classList.add('dropdown');
+
+        var text = this._text;
+
+        var dropDownButton = document.createElement('div');
+        dropDownButton.classList.add('dropbtn');
+        dropDownButton.textContent = text ? text : 'Select item';
+        dropDownWrapper.appendChild(dropDownButton);
+
+        this._textContainer = dropDownButton;
+
+        var ul = document.createElement('ul');
+        ul.classList.add('dropdown-content');
+
+        var data = this._data;
+        var dataLength = data.length;
+
+        for (var i = 0; i < dataLength; i++) {
+            var item = data[i];
+
+            if (!item) {
+                continue;
+            }
+
+            var li = this._createLi(item);
+            ul.appendChild(li);
+        }
+
+        dropDownWrapper.appendChild(ul);
+
+        dropDownButton.addEventListener('click', function () {
+            ul.classList.toggle("show");
+        });
 
         var targetToRender = document.querySelector(this._selector);
         if (!targetToRender) {
@@ -68,47 +93,7 @@
             return;
         }
 
-        targetToRender.innerHTML = markup;
-
-        // var dropDownWrapper = document.createElement('div');
-        // dropDownWrapper.classList.add('drop-down-control-wrapper');
-        // dropDownWrapper.setAttribute('tabindex', 1);
-
-        // dropDownWrapper.addEventListener('click', function () {
-        //     if (!this.classList.contains('active')) {
-        //         this.classList.add('active');
-        //     } else {
-        //         this.classList.remove('active');
-        //     }
-        // });
-
-        // var ul = document.createElement('ul');
-        // ul.classList.add('dropdown-control-list');
-
-        // var data = this._data;
-        // var dataLength = data.length;
-
-        // for (var i = 0; i < dataLength; i++) {
-        //     var item = data[i];
-
-        //     if (!item) {
-        //         continue;
-        //     }
-
-        //     var li = this._createLi(item);
-        //     ul.appendChild(li);
-        // }
-
-        // dropDownWrapper.appendChild(ul);
-
-        // var targetToRender = document.querySelector(this._selector);
-
-        // if (!targetToRender) {
-        //     console.error('dropdown cant find target to render on selector: ' + this._selector);
-        //     return;
-        // }
-
-        // targetToRender.appendChild(dropDownWrapper);
+        targetToRender.appendChild(dropDownWrapper);
     }
 
     DropDownControl.prototype._createLi = function (item) {
@@ -131,6 +116,18 @@
         hiddenSpan.textContent = item.value;
 
         li.appendChild(hiddenSpan);
+
+        var self = this;
+        li.addEventListener('click', function () {
+            self._selectedValue = item.value;
+            if(self._textContainer && self._textContainer.textContent) {
+                self._textContainer.textContent = item.displayValue;
+            }
+
+            if (typeof (self._onChange) === 'function') {
+                self._onChange(item.value);
+            }
+        });
 
         return li;
     }

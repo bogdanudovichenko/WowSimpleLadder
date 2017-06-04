@@ -58,6 +58,7 @@
     color: #fff;
     text-align: center;
     font-weight: bold;
+    min-width: 260px;
 }
 
     /* Dropdown button on hover & focus */
@@ -70,7 +71,6 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    min-width: 160px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -79,21 +79,29 @@
     position: absolute;
     background-color: #211510;
     color: #f8b700;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 #000000;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
     width: 99%;
     border: solid 1px #504137;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-    /* Links inside the dropdown */
-    .dropdown-content span {
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
+    .dropdown-content > li {
         text-align: center;
+        padding-top: 15px;
     }
 
-        /* Change color of dropdown links on hover */
+        .dropdown-content > li:last-child {
+            padding-bottom: 15px;
+        }
+
+    .dropdown-content span {
+        text-decoration: none;
+    }
+
         .dropdown-content span:hover {
             color: #f1f1f1;
             cursor: pointer;
