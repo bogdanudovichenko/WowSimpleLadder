@@ -83,7 +83,10 @@
     <Content Include="Css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="Content\WowLadder.db" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\wowsimpleladder - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\wowsimpleladder - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,9 +145,7 @@
       <Name>WowSimpleLadder.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
