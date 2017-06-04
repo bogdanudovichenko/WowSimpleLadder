@@ -57,6 +57,11 @@
 
         //demon hunter
         HavokDh = 577,
-        VengeanceDh = 581
+        VengeanceDh = 581,
+
+        //monk
+        Brewmaster = 268,
+        Windwalker = 269,
+        Mistweaver = 270
     }
 }

@@ -90,6 +90,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="WowLadder.db" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />

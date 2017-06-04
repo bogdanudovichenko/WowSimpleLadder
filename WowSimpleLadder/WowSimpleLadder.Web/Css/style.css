@@ -28,8 +28,10 @@
     }
 /*end tab contol styles*/
 
+.filter-wrapper-item {
+    display: inline-block;
+}
 /*start grid control styles*/
-
 .grid-control-table {
     border-collapse: collapse;
 }

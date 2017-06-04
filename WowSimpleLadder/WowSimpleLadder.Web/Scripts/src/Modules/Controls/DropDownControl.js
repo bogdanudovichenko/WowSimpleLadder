@@ -92,7 +92,7 @@
             console.error('dropdown cant find target to render on selector: ' + this._selector);
             return;
         }
-
+        targetToRender.innerHTML = '';
         targetToRender.appendChild(dropDownWrapper);
     }
 

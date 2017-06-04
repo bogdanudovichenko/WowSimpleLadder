@@ -18,7 +18,8 @@
     var store = new Store({
         tabs: tabs,
         currentWowPvpBracket: 0,
-        selectedWowClass: 0
+        selectedWowClass: 0,
+        selectedWowSpec: 0
     });
 
     renderLadder(store);
@@ -35,6 +36,22 @@
         text: 'Select class',
         onChange: function(value) {
             store.setState('selectedWowClass', value);
+
+            if(!value) {
+                document.getElementById('wow-specs-drop-down-wrapper').innerHTML = '';
+                store.setState('selectedWowSpec', 0);
+                return;
+            }
+
+            var wowSpecsList = wowClassesList.filter(wc => wc.value === value)[0].specs;
+
+            var specsDropDownList = new DropDownControl('#wow-specs-drop-down-wrapper', {
+                data: wowSpecsList,
+                text: 'Select spec',
+                onChange: function(value) {
+                    store.setState('selectedWowSpec', value);
+                }
+            });
         }
     });
 
@@ -47,7 +64,8 @@
 
         var params = {
             pvpBracket: state.currentWowPvpBracket,
-            wowclass: state.selectedWowClass
+            wowclass: state.selectedWowClass,
+            specid: state.selectedWowSpec 
         };
 
         var url = apiService.formUrlForLadderGrid(params);

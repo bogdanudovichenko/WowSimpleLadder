@@ -34,7 +34,7 @@ namespace WowSimpleLadder.Web.Models.QueryModels
             if (parametrs.ContainsKey("specid"))
             {
                 WowSpec specId;
-                WowSpecId = Enum.TryParse("specid", out specId) ? specId : WowSpec.All;
+                WowSpecId = Enum.TryParse(parametrs["specid"], out specId) ? specId : WowSpec.All;
             }
         }
     }
