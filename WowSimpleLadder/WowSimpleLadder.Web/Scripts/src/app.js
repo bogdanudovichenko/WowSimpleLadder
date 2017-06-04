@@ -34,21 +34,21 @@
     var classesDropDownControl = new DropDownControl('#wow-classes-drop-down-wrapper', {
         data: wowClassesList,
         text: 'Select class',
-        onChange: function(value) {
+        onChange: function (value) {
             store.setState('selectedWowClass', value);
 
-            if(!value) {
+            if (!value) {
                 document.getElementById('wow-specs-drop-down-wrapper').innerHTML = '';
                 store.setState('selectedWowSpec', 0);
                 return;
             }
 
-            var wowSpecsList = wowClassesList.filter(wc => wc.value === value)[0].specs;
+            var wowSpecsList = _.filter(wowClassesList, function (wc) { return wc.value === value })[0].specs;
 
             var specsDropDownList = new DropDownControl('#wow-specs-drop-down-wrapper', {
                 data: wowSpecsList,
                 text: 'Select spec',
-                onChange: function(value) {
+                onChange: function (value) {
                     store.setState('selectedWowSpec', value);
                 }
             });
@@ -65,7 +65,7 @@
         var params = {
             pvpBracket: state.currentWowPvpBracket,
             wowclass: state.selectedWowClass,
-            specid: state.selectedWowSpec 
+            specid: state.selectedWowSpec
         };
 
         var url = apiService.formUrlForLadderGrid(params);
@@ -79,7 +79,18 @@
                 },
                 {
                     displayName: 'Name',
-                    logicalName: 'name'
+                    logicalName: 'name',
+                    template: function (val, item) {
+                        var url = 'https://worldofwarcraft.com/' + getBlizzardLocaleStr(item.locale) + '/character/' + item.realmName +'/' + val;
+                        url = decodeURIComponent(url);
+
+                        var link = document.createElement('a');
+                        link.classList.add('wow-class-name-link');
+                        link.href = url;
+                        link.innerHTML = '<span class="wow-class-name" style="color:' + wowClassesList[item.classId].color +';">' + val + '</span>'
+
+                        return link.outerHTML; 
+                    }
                 },
                 {
                     displayName: 'Realm',
@@ -101,3 +112,12 @@
         });
     }
 });
+
+function getBlizzardLocaleStr(locale) {
+    switch(locale) {
+        case 0:
+            return 'en-us';
+        case 1:
+            return 'en-gb'
+    }
+}

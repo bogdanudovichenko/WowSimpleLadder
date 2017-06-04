@@ -7,6 +7,7 @@ var wowClassesList = [
     {
         displayValue: 'Warrior',
         value: 1,
+        color: '#C41F3B',
         specs: [
             {
                 displayValue: 'All',
@@ -29,6 +30,7 @@ var wowClassesList = [
     {
         displayValue: 'Paladin',
         value: 2,
+        color: '#F58CBA',
         specs: [
             {
                 displayValue: 'All',
@@ -51,6 +53,7 @@ var wowClassesList = [
     {
         displayValue: 'Hunter',
         value: 3,
+        color: '#ABD473',
         specs: [
             {
                 displayValue: 'All',
@@ -73,6 +76,7 @@ var wowClassesList = [
     {
         displayValue: 'Rogue',
         value: 4,
+        color: '#FFF569',
         specs: [
             {
                 displayValue: 'All',
@@ -95,6 +99,7 @@ var wowClassesList = [
     {
         displayValue: 'Priest',
         value: 5,
+        color: '#FFFFFF',
         specs: [
             {
                 displayValue: 'All',
@@ -115,8 +120,9 @@ var wowClassesList = [
         ]
     },
     {
-        displayValue: 'DeathKnight',
+        displayValue: 'Death Knight',
         value: 6,
+        color: '#C41F3B',
         specs: [
             {
                 displayValue: 'All',
@@ -139,6 +145,7 @@ var wowClassesList = [
     {
         displayValue: 'Shaman',
         value: 7,
+        color: '#0070DE',
         specs: [
             {
                 displayValue: 'All',
@@ -161,6 +168,7 @@ var wowClassesList = [
     {
         displayValue: 'Mage',
         value: 8,
+        color: '#69CCF0',
         specs: [
             {
                 displayValue: 'All',
@@ -183,6 +191,7 @@ var wowClassesList = [
     {
         displayValue: 'Warlock',
         value: 9,
+        color: '#9482C9',
         specs: [
             {
                 displayValue: 'All',
@@ -205,6 +214,7 @@ var wowClassesList = [
     {
         displayValue: 'Monk',
         value: 10,
+        color: '#00FF96',
         specs: [
             {
                 displayValue: 'All',
@@ -227,6 +237,7 @@ var wowClassesList = [
     {
         displayValue: 'Druid',
         value: 11,
+        color: '#FF7D0A',
         specs: [
             {
                 displayValue: 'All',
@@ -253,6 +264,7 @@ var wowClassesList = [
     {
         displayValue: 'Demon Hunter',
         value: 12,
+        color: '#A330C9',
         specs: [
             {
                 displayValue: 'All',

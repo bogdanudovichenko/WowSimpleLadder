@@ -128,24 +128,26 @@
         var tr = document.createElement('tr');
         tr.classList.add('grid-row');
 
-        var headers = this._tableHeaders.map(h => h.logicalName);
-        var headersLength = headers.length;
+        //var headers = _.map(this._tableHeaders, function (h)  { return  h.logicalName });
+        var tableHeaders = this._tableHeaders;
+        var headersLength = tableHeaders.length;
 
         var itemWithSortedKeys = {};
 
         for(var i = 0; i < headersLength; i++) {
-            var header = headers[i];
-            var value = item[header];
-            value = !value ? '' : value;
-            
-            var td = this._createBodyTd(header, value);
+            var tableHeader = tableHeaders[i];
+            var headerLogicalName = tableHeader.logicalName;
+            var value = item[headerLogicalName];
+            value = !value ? '' : value;          
+
+            var td = this._createBodyTd(headerLogicalName, value, tableHeader.template, item);
             tr.appendChild(td);
         }
 
         return tr;
     }
 
-    GridControl.prototype._createBodyTd = function(key, value) {
+    GridControl.prototype._createBodyTd = function(key, value, template, item) {
         var keySpan = document.createElement('span');
         keySpan.classList.add('grid-td-key-span');
         keySpan.style.visibility = 'hidden';
@@ -153,7 +155,7 @@
 
         var displaySpan = document.createElement('span');
         displaySpan.classList.add('grid-td-display-span');
-        displaySpan.textContent = value;
+        displaySpan.innerHTML = template && typeof(template) === 'function' ? template(value, item) : value;
 
         var td = document.createElement('td');
         td.classList.add('grid-body-td');

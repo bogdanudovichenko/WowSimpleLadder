@@ -9,7 +9,7 @@
             throw 'defaultState cannot be null';
         }
 
-        this._state = Object.assign({}, defaultState);
+        this._state = _.extend({}, defaultState);
         this._onChangeEventListeners = [];
 
         return this;
@@ -18,7 +18,7 @@
     window.Store = Store;
 
     Store.prototype.getAllState = function () {
-        return Object.assign({}, this._state);
+        return _.extend({}, this._state);
     };
 
     Store.prototype.getState = function (key) {
@@ -33,10 +33,10 @@
         var value = this._state[key];
 
         if (Array.isArray(value)) {
-            return Object.assign([], value);
+            return _.extend([], value);
         }
 
-        return typeof (value) !== 'object' ? value : Object.assign({}, value);
+        return typeof (value) !== 'object' ? value : _.extend({}, value);
     };
 
     Store.prototype.setState = function (key, value) {
@@ -55,9 +55,9 @@
         var valueToSet;
 
         if (Array.isArray(value)) {
-            valueToSet = Object.assign([], value);
+            valueToSet = _.extend([], value);
         } else {
-            valueToSet = typeof (value) !== 'object' ? value : Object.assign({}, value);
+            valueToSet = typeof (value) !== 'object' ? value : _.extend({}, value);
         }
 
         this._state[key] = valueToSet;

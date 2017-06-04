@@ -118,9 +118,10 @@
         li.appendChild(hiddenSpan);
 
         var self = this;
+
         li.addEventListener('click', function () {
             self._selectedValue = item.value;
-            if(self._textContainer && self._textContainer.textContent) {
+            if (self._textContainer && self._textContainer.textContent) {
                 self._textContainer.textContent = item.displayValue;
             }
 

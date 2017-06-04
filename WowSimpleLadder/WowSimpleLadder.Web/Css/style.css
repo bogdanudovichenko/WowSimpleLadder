@@ -119,3 +119,9 @@
 center a {
     display: none;
 }
+
+/*other*/
+
+a.wow-class-name-link {
+    text-decoration: none;
+}
