@@ -9,20 +9,19 @@ namespace WowSimpleLadder.BLL.Services.Concrete
     {
         public void Start()
         {
-            //hardcode 
-            //IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
-            //scheduler.Start();
+            IScheduler scheduler = StdSchedulerFactory.GetDefaultScheduler();
+            scheduler.Start();
 
-            //IJobDetail job = JobBuilder.Create<WowLadderDownloadJob>().Build();
+            IJobDetail job = JobBuilder.Create<WowLadderDownloadJob>().Build();
 
-            //ITrigger trigger = TriggerBuilder.Create()
-            //    .StartNow()
-            //    .WithSimpleSchedule(x => x
-            //        .WithIntervalInHours(24)
-            //        .RepeatForever())
-            //    .Build();
+            ITrigger trigger = TriggerBuilder.Create()
+                .StartNow()
+                .WithSimpleSchedule(x => x
+                    .WithIntervalInHours(24)
+                    .RepeatForever())
+                .Build();
 
-            //scheduler.ScheduleJob(job, trigger);
+            scheduler.ScheduleJob(job, trigger);
         }
     }
 }
