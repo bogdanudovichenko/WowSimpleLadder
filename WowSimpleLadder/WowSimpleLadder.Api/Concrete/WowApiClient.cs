@@ -106,7 +106,7 @@ namespace WowSimpleLadder.Api.Concrete
             }
             catch (Exception ex)
             {
-                LogerManager.LogError(ex);
+                LogerManager.LogError(ex, $"url: {url}");
                 return null;
             }
         }

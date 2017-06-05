@@ -1,0 +1,5 @@
+2017-06-05 13:34:05.465 +03:00 [Error] url: https://eu.api.battle.net/wow/leaderboard/2v2?locale=en_GB&apikey=s92e46uejpf5ez2eebcds28fcgjt7mt6
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 504 (GATEWAY_TIMEOUT).
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at WowSimpleLadder.Api.Concrete.WowApiClient.<GetPvpLadderRowsAsync>d__10.MoveNext() in D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Api\Concrete\WowApiClient.cs:line 90
