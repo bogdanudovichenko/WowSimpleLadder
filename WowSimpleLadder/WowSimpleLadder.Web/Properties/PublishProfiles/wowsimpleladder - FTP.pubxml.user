@@ -6,7 +6,217 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbBpdXemRZUuaBJ8m0UBgqgAAAAACAAAAAAAQZgAAAAEAACAAAACnAq+0b84RyzA5oFCYbYlS/4jPGadYCMP5pMHFbIvDNAAAAAAOgAAAAAIAACAAAAAoAp1RlfhZUSvTy0MagMtsWAyfp5flAf94H6LVFrIRLoAAAADr6/DvhNrb+koYwz6vCbPX0f+U65Ftj15lm2FzrMZshk7bLdXO+2sIv1R2wBibmP7mzlFlYHBg5abYhyDVyxjzfqvZu3/3s6+SfccbL2Ny/R6p+lklgudD2TlTtK7ft5y+lL49Af8tLxW1zETjtriDGtZ1RMZ3SDGguxR+N1Nm/0AAAACGB0DL6oePESdkWPEIMC1S1C7GxFhNa0lczbUbUL8g8vQ1IXCL8BA018mTSLQZLiTTTMDoTd/w4+6tfpL63K7/</EncryptedPassword>
-    <_NewBackgroundProfile>False</_NewBackgroundProfile>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbBpdXemRZUuaBJ8m0UBgqgAAAAACAAAAAAAQZgAAAAEAACAAAABbQJzOHwa/BSS5ZzU8ybYZhthXaBnLV2HflEeUGlc9JgAAAAAOgAAAAAIAACAAAACWbVuNVs9CKX4+6g1rlUEQuXZKbMUW0KeAqGFTDjXiAYAAAAD5R/9HjQrOurtf8m9G/ULtb1TcQRArEXLsmlFt5G3AvRX+atovm9p8zmbNXHvMayJlIPBwBegJ9G5yTqoiSeAXMnnok7cFCAQvlfrrUswtdEstBmDCvUbvd/kNpau7Xy51yZk40EXmfyhREr4I5f4Ggk0y6izLaJG3xH99jIVQJ0AAAABmFIgsJPIKnqQZ+2N5piAEddo5ikcxneMEaV7pEjdo8k6ujuoNipr5S+NJAYNH9lFYJLZiI7Ivk0NNtnrCGZ6V</EncryptedPassword>
+    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+    <_PublishTargetUrl>ftp://waws-prod-am2-111.ftp.azurewebsites.windows.net/site/wwwroot</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Common.Logging.Core.dll">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.pdb">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.pdb">
+      <publishTime>11/14/2015 13:35:30</publishTime>
+    </File>
+    <File Include="bin/LiteDB.dll">
+      <publishTime>03/11/2017 19:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>12/13/2016 03:10:32</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/02/2017 17:46:32</publishTime>
+    </File>
+    <File Include="bin/Quartz.dll">
+      <publishTime>02/18/2017 09:28:06</publishTime>
+    </File>
+    <File Include="bin/Quartz.pdb">
+      <publishTime>02/18/2017 09:28:06</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 15:50:24</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>04/27/2016 13:49:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>04/27/2016 13:49:14</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>04/27/2016 13:49:15</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Api.dll">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Api.pdb">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.BLL.dll">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.BLL.pdb">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Configuration.dll">
+      <publishTime>06/05/2017 00:33:11</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Configuration.pdb">
+      <publishTime>06/05/2017 00:33:11</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.DAL.dll">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.DAL.pdb">
+      <publishTime>06/05/2017 00:33:12</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Models.dll">
+      <publishTime>06/05/2017 00:33:11</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Models.pdb">
+      <publishTime>06/05/2017 00:33:11</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Web.dll">
+      <publishTime>06/05/2017 00:40:47</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Web.pdb">
+      <publishTime>06/05/2017 00:40:47</publishTime>
+    </File>
+    <File Include="Content/bg.jpg">
+      <publishTime>05/20/2017 10:59:56</publishTime>
+    </File>
+    <File Include="Content/WowLadder.db">
+      <publishTime>06/04/2017 10:30:21</publishTime>
+    </File>
+    <File Include="Css/entireframework.min.css">
+      <publishTime>05/19/2017 06:41:03</publishTime>
+    </File>
+    <File Include="Css/style.css">
+      <publishTime>06/04/2017 11:26:08</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/09/2017 11:07:04</publishTime>
+    </File>
+    <File Include="Index.html">
+      <publishTime>06/04/2017 10:48:43</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/07/2017 10:37:07</publishTime>
+    </File>
+    <File Include="Scripts/Libs/lodash.core.js">
+      <publishTime>06/04/2017 10:48:25</publishTime>
+    </File>
+    <File Include="Scripts/src/app.js">
+      <publishTime>06/04/2017 20:26:16</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/ajax_module.js">
+      <publishTime>05/21/2017 13:06:17</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/ajax_module.min.js">
+      <publishTime>05/18/2017 09:45:51</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/api_service.js">
+      <publishTime>05/21/2017 13:06:03</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/Controls/DropDownControl.js">
+      <publishTime>06/04/2017 20:03:17</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/Controls/GridControl.js">
+      <publishTime>06/04/2017 11:14:50</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/Controls/TabsControl.js">
+      <publishTime>06/04/2017 19:52:10</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/Store.js">
+      <publishTime>06/04/2017 20:27:30</publishTime>
+    </File>
+    <File Include="Scripts/src/Modules/wowClassesList.js">
+      <publishTime>06/04/2017 20:34:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/05/2017 00:40:51</publishTime>
+    </File>
+    <File Include="WowLadder.db">
+      <publishTime>06/04/2017 10:30:21</publishTime>
+    </File>
+  </ItemGroup>
 </Project>

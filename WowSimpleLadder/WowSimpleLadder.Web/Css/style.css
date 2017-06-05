@@ -26,8 +26,18 @@
         background: #F8B700;
         color: #211510
     }
-/*end tab contol styles*/
 
+@media only screen and (max-device-width: 480px) {
+    .tabs-control-wrapper {
+        font-size: 2.14em;
+    }
+
+        .tabs-control-wrapper .tab-contol-wrapper {
+            padding-bottom: 15px;
+        }
+}
+
+/*end tab contol styles*/
 .filter-wrapper-item {
     display: inline-block;
 }

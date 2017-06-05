@@ -8,6 +8,7 @@ using WowSimpleLadder.Api.Interfaces;
 using WowSimpleLadder.Configuration;
 using WowSimpleLadder.DAL.Repositories.Concrete;
 using WowSimpleLadder.Models.ApiModels;
+using WowSimpleLadder.Models.Enums;
 
 namespace WowSimpleLadder.BLL.QuartzJobs
 {
@@ -32,7 +33,7 @@ namespace WowSimpleLadder.BLL.QuartzJobs
                     }
                 }
 
-                IEnumerable<PvpApiRowModel> ladderRows = await _wowApiClient.GetAllPvpLadderRowsAsync();
+                IReadOnlyList<PvpApiRowModel> ladderRows = await _wowApiClient.GetAllPvpLadderRowsAsync();
 
                 if (!ladderRows.Any())
                 {
@@ -40,9 +41,22 @@ namespace WowSimpleLadder.BLL.QuartzJobs
                 }
 
                 using (var wowLadderRepository = new WowLadderLiteDbRepository(SimpleLadderConfig.WowLadderLiteDbConnection))
+                using(var trans = wowLadderRepository.BeginTransaction())
                 {
-                    await wowLadderRepository.RemoveAllRecordsAsync();
-                    await wowLadderRepository.CreateAsync(ladderRows);
+                    foreach (BlizzardLocale locale in Enum.GetValues(typeof(BlizzardLocale)))
+                    {
+                        foreach (WowPvpBracket bracket in Enum.GetValues(typeof(WowPvpBracket)))
+                        {
+                            if (ladderRows.Any(lr => lr.Locale == (byte)locale && lr.Bracket == (byte)bracket))
+                            {
+                                wowLadderRepository.RemoveRecords(locale, bracket);
+                            }
+                        }
+                    }
+
+                    wowLadderRepository.Create(ladderRows);
+
+                    trans.Commit();
                 }
             }
             catch (Exception e)

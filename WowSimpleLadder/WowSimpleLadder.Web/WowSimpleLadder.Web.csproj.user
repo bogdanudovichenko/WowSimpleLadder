@@ -3,7 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <ProjectView>ProjectFiles</ProjectView>
-    <NameOfLastUsedPublishProfile>wowsimpleladder - Web Deploy</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>wowsimpleladder - FTP</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

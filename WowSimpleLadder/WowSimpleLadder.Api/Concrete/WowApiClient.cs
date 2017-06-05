@@ -24,7 +24,7 @@ namespace WowSimpleLadder.Api.Concrete
         /// </summary>
         public async Task<IReadOnlyList<PvpApiRowModel>> GetAllPvpLadderRowsAsync()
         {
-            var result = new List<PvpApiRowModel>();
+            var tasks = new List<Task<IReadOnlyList<PvpApiRowModel>>>();
 
             foreach (string localeName in Enum.GetNames(typeof(BlizzardLocale)))
             {
@@ -35,8 +35,7 @@ namespace WowSimpleLadder.Api.Concrete
                     continue;
                 }
 
-                var brackets = Enum.GetNames(typeof(WowPvpBracket));
-                foreach (string bracketName in brackets)
+                foreach (string bracketName in Enum.GetNames(typeof(WowPvpBracket)))
                 {
                     Enum.TryParse(bracketName, out WowPvpBracket wowPvpBracket);
 
@@ -45,13 +44,21 @@ namespace WowSimpleLadder.Api.Concrete
                         continue;
                     }
 
-                    IEnumerable<PvpApiRowModel> pvpLadderRowsBuf = await GetPvpLadderRowsAsync(blizzardLocale, wowPvpBracket);
-
-                    if (pvpLadderRowsBuf != null)
-                    {
-                        result.AddRange(pvpLadderRowsBuf);
-                    }
+                    var bufTask = GetPvpLadderRowsAsync(blizzardLocale, wowPvpBracket);
+                    tasks.Add(bufTask);
                 }
+            }
+
+            Task.WaitAll(tasks.ToArray());
+
+            var result = new List<PvpApiRowModel>();
+
+            foreach (var task in tasks)
+            {
+                if (task.Result != null)
+                {
+                    result.AddRange(task.Result);
+                }    
             }
 
             return result;

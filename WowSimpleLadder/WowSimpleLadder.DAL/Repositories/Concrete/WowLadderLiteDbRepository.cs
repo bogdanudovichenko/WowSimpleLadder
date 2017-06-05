@@ -60,11 +60,6 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
 
         public bool IsDownloadedToday => _liteDbRepo.FirstOrDefault<PvpApiRowModel>()?.DownloadedOn.Date == DateTime.Today;
 
-        public Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows)
-        {
-            return Task.Run(() => Create(ladderRows));
-        }
-
         public void Create(IEnumerable<PvpApiRowModel> ladderRows)
         {
             if (ladderRows == null)
@@ -74,17 +69,13 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
 
             foreach (PvpApiRowModel row in ladderRows)
             {
-                using (var trans = _liteDbRepo.BeginTrans())
-                {
-                    _liteDbRepo.Insert(row);
-                    trans.Commit();
-                }
+                _liteDbRepo.Insert(row);
             }
         }
 
-        public Task RemoveAllRecordsAsync()
+        public void RemoveRecords(BlizzardLocale locale, WowPvpBracket wowPvpBracket)
         {
-            return Task.Run(() => RemoveAllRecords());
+            _liteDbRepo.Delete<PvpApiRowModel>(row => row.Locale == (byte)locale && row.Bracket == (byte)wowPvpBracket);
         }
 
         public void RemoveAllRecords()
@@ -95,6 +86,11 @@ namespace WowSimpleLadder.DAL.Repositories.Concrete
         public void Dispose()
         {
             _liteDbRepo?.Dispose();
+        }
+
+        public LiteTransaction BeginTransaction()
+        {
+            return _liteDbRepo.BeginTrans();
         }
     }
 }

@@ -14,11 +14,9 @@ namespace WowSimpleLadder.DAL.Repositories.Interfaces
         IReadOnlyList<PvpApiRowModel> Get(BlizzardLocale locale = BlizzardLocale.All, WowPvpBracket bracket = WowPvpBracket.All, 
             WowClass wowClass = WowClass.All, WowSpec spec = WowSpec.All, uint skip = 0, uint take = 100);
 
-        Task CreateAsync(IEnumerable<PvpApiRowModel> ladderRows);
         void Create(IEnumerable<PvpApiRowModel> ladderRows);
 
         void RemoveAllRecords();
-        Task RemoveAllRecordsAsync();
         bool IsDownloadedToday { get; }
     }
 }
