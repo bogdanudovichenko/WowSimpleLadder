@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA73229D-FF1B-42FC-BCB8-E0AA7DF0E13C}</ProjectGuid>
+    <ProjectGuid>{4506EB85-840C-4ADF-B0B6-6B0041455C44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WowSimpleLadder.DAL</RootNamespace>
-    <AssemblyName>WowSimpleLadder.DAL</AssemblyName>
+    <RootNamespace>WowSimpleLadder.Logger</RootNamespace>
+    <AssemblyName>WowSimpleLadder.Logger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LiteDB, Version=3.1.0.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteDB.3.1.0\lib\net35\LiteDB.dll</HintPath>
-    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.4.0\lib\net45\Serilog.dll</HintPath>
     </Reference>
@@ -52,19 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Concrete\WowLadderLiteDbRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IWowLadderRepository.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\WowSimpleLadder.Models\WowSimpleLadder.Models.csproj">
-      <Project>{695048e6-8487-4679-88f0-363bac77653f}</Project>
-      <Name>WowSimpleLadder.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WowSimpleLadder.Configuration\WowSimpleLadder.Configuration.csproj">
+      <Project>{C6223968-7B64-48A1-B221-C12DA140AF24}</Project>
+      <Name>WowSimpleLadder.Configuration</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

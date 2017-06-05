@@ -35,6 +35,15 @@
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.4.0\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.3.2.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.RollingFile.3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +65,10 @@
     <ProjectReference Include="..\WowSimpleLadder.Configuration\WowSimpleLadder.Configuration.csproj">
       <Project>{c6223968-7b64-48a1-b221-c12da140af24}</Project>
       <Name>WowSimpleLadder.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WowSimpleLadder.Logger\WowSimpleLadder.Logger.csproj">
+      <Project>{4506EB85-840C-4ADF-B0B6-6B0041455C44}</Project>
+      <Name>WowSimpleLadder.Logger</Name>
     </ProjectReference>
     <ProjectReference Include="..\WowSimpleLadder.Models\WowSimpleLadder.Models.csproj" />
   </ItemGroup>

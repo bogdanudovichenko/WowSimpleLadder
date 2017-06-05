@@ -7,7 +7,7 @@ namespace WowSimpleLadder.Api.Interfaces
 {
     public interface IWowApiClient
     {
-        Task<IReadOnlyList<PvpApiRowModel>> GetAllPvpLadderRowsAsync();
+        IReadOnlyList<PvpApiRowModel> GetAllPvpLadderRows();
         Task<IReadOnlyList<PvpApiRowModel>> GetPvpLadderRowsAsync(BlizzardLocale locale, WowPvpBracket bracket);
     }
 }

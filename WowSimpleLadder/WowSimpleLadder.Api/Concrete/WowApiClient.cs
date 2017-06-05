@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WowSimpleLadder.Api.Interfaces;
 using WowSimpleLadder.Configuration;
+using WowSimpleLadder.Logger;
 using WowSimpleLadder.Models.ApiModels;
 using WowSimpleLadder.Models.Enums;
 using WowSimpleLadder.Models.Enums.Extensions;
@@ -22,7 +23,7 @@ namespace WowSimpleLadder.Api.Concrete
         /// <summary>
         /// Return pvp world of warcraft ladder data from official blizzard web api for all local and brackets
         /// </summary>
-        public async Task<IReadOnlyList<PvpApiRowModel>> GetAllPvpLadderRowsAsync()
+        public IReadOnlyList<PvpApiRowModel> GetAllPvpLadderRows()
         {
             var tasks = new List<Task<IReadOnlyList<PvpApiRowModel>>>();
 
@@ -103,9 +104,9 @@ namespace WowSimpleLadder.Api.Concrete
                     return rows.Rows;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine(e.Message);
+                LogerManager.LogError(ex);
                 return null;
             }
         }

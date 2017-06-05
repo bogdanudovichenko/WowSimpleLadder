@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DCD83F5B-B1EC-4E7E-AAD2-C98826EB79EC}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.Configuration", "WowSimpleLadder.Configuration\WowSimpleLadder.Configuration.csproj", "{C6223968-7B64-48A1-B221-C12DA140AF24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.Web", "WowSimpleLadder.Web\WowSimpleLadder.Web.csproj", "{D7F6D486-B1BC-457E-B6CC-8ED14468EFF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowSimpleLadder.Logger", "WowSimpleLadder.Logger\WowSimpleLadder.Logger.csproj", "{4506EB85-840C-4ADF-B0B6-6B0041455C44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{D7F6D486-B1BC-457E-B6CC-8ED14468EFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7F6D486-B1BC-457E-B6CC-8ED14468EFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7F6D486-B1BC-457E-B6CC-8ED14468EFF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4506EB85-840C-4ADF-B0B6-6B0041455C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4506EB85-840C-4ADF-B0B6-6B0041455C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4506EB85-840C-4ADF-B0B6-6B0041455C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4506EB85-840C-4ADF-B0B6-6B0041455C44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

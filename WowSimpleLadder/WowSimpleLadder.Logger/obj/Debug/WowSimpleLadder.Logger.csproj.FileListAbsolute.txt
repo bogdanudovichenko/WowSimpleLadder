@@ -1,0 +1,13 @@
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\WowSimpleLadder.Logger.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\WowSimpleLadder.Logger.pdb
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.Sinks.File.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.Sinks.RollingFile.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\WowSimpleLadder.Configuration.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\WowSimpleLadder.Configuration.pdb
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.xml
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.Sinks.File.xml
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\bin\Debug\Serilog.Sinks.RollingFile.xml
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\obj\Debug\WowSimpleLadder.Logger.csprojResolveAssemblyReference.cache
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\obj\Debug\WowSimpleLadder.Logger.dll
+D:\Repositories\WowSimpleLadderRepo\WowSimpleLadder\WowSimpleLadder.Logger\obj\Debug\WowSimpleLadder.Logger.pdb
