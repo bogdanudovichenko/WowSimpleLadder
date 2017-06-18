@@ -135,16 +135,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2016 13:49:15</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Api.dll">
-      <publishTime>06/05/2017 13:30:43</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Api.pdb">
-      <publishTime>06/05/2017 13:30:43</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.BLL.dll">
-      <publishTime>06/05/2017 13:30:43</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.BLL.pdb">
-      <publishTime>06/05/2017 13:30:43</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Configuration.dll">
       <publishTime>06/05/2017 13:19:16</publishTime>
@@ -153,10 +153,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 13:19:16</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.DAL.dll">
-      <publishTime>06/05/2017 13:19:16</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.DAL.pdb">
-      <publishTime>06/05/2017 13:19:16</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Logger.dll">
       <publishTime>06/05/2017 13:30:42</publishTime>
@@ -165,34 +165,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 13:30:42</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Models.dll">
-      <publishTime>06/05/2017 00:33:11</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Models.pdb">
-      <publishTime>06/05/2017 00:33:11</publishTime>
+      <publishTime>06/18/2017 21:36:22</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Web.dll">
-      <publishTime>06/05/2017 13:30:46</publishTime>
+      <publishTime>06/18/2017 21:36:25</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Web.pdb">
-      <publishTime>06/05/2017 13:30:46</publishTime>
+      <publishTime>06/18/2017 21:36:25</publishTime>
     </File>
     <File Include="Content/bg.jpg">
       <publishTime>05/20/2017 10:59:56</publishTime>
     </File>
     <File Include="Content/WowLadder.db">
-      <publishTime>06/05/2017 13:36:43</publishTime>
+      <publishTime>06/18/2017 21:00:04</publishTime>
     </File>
     <File Include="Css/entireframework.min.css">
       <publishTime>05/19/2017 06:41:03</publishTime>
     </File>
     <File Include="Css/style.css">
-      <publishTime>06/05/2017 11:38:11</publishTime>
+      <publishTime>06/18/2017 21:35:28</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/09/2017 11:07:04</publishTime>
     </File>
     <File Include="Index.html">
-      <publishTime>06/04/2017 10:48:43</publishTime>
+      <publishTime>06/18/2017 21:33:38</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/05/2017 13:03:23</publishTime>
@@ -201,7 +201,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/04/2017 10:48:25</publishTime>
     </File>
     <File Include="Scripts/src/app.js">
-      <publishTime>06/04/2017 20:26:16</publishTime>
+      <publishTime>06/18/2017 21:40:37</publishTime>
     </File>
     <File Include="Scripts/src/Modules/ajax_module.js">
       <publishTime>05/21/2017 13:06:17</publishTime>
@@ -213,10 +213,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2017 13:06:03</publishTime>
     </File>
     <File Include="Scripts/src/Modules/Controls/DropDownControl.js">
-      <publishTime>06/04/2017 20:03:17</publishTime>
+      <publishTime>06/18/2017 20:58:39</publishTime>
     </File>
     <File Include="Scripts/src/Modules/Controls/GridControl.js">
-      <publishTime>06/04/2017 11:14:50</publishTime>
+      <publishTime>06/18/2017 21:17:59</publishTime>
     </File>
     <File Include="Scripts/src/Modules/Controls/TabsControl.js">
       <publishTime>06/04/2017 19:52:10</publishTime>

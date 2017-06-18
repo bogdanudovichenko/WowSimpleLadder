@@ -35,6 +35,18 @@
     GridControl.prototype._render = function () {
         var self = this;
 
+        if(!self._selector) {
+            return;
+        }
+
+        var gridContainter = document.querySelector(self._selector);
+
+        if(!gridContainter) {
+            return;
+        }
+
+        gridContainter.classList.add('loader');
+
         ajax.httpGet(this._url, null, function (data) {
 
             if (!data) {
@@ -60,9 +72,10 @@
             if(self._onDataBound && typeof(self._onDataBound) === 'function') {
                 self._onDataBound(data);
             }
-
+            gridContainter.classList.remove('loader');
         }, function (err) {
             console.error(err);
+            gridContainter.classList.remove('loader');
         });
     }
 
