@@ -29,7 +29,7 @@
         this._data = options.data;
         this._text = options.text;
         this._selector = selector;
-        this._selectedValue = options.selectedValue ? options.selectedValue : -1;
+        this._selectedValue = options.selectedValue !== undefined ? options.selectedValue : -1;
         this._onChange = options.onChange;
 
         this._render();

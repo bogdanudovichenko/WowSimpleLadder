@@ -116,6 +116,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>06/27/2016 15:50:24</publishTime>
     </File>
+    <File Include="bin/Serilog.dll">
+      <publishTime>02/03/2017 01:16:04</publishTime>
+    </File>
+    <File Include="bin/Serilog.Sinks.File.dll">
+      <publishTime>01/03/2017 02:29:38</publishTime>
+    </File>
+    <File Include="bin/Serilog.Sinks.RollingFile.dll">
+      <publishTime>01/03/2017 03:05:26</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>04/27/2016 13:49:12</publishTime>
     </File>
@@ -126,28 +135,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2016 13:49:15</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Api.dll">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:30:43</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Api.pdb">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:30:43</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.BLL.dll">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:30:43</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.BLL.pdb">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:30:43</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Configuration.dll">
-      <publishTime>06/05/2017 00:33:11</publishTime>
+      <publishTime>06/05/2017 13:19:16</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Configuration.pdb">
-      <publishTime>06/05/2017 00:33:11</publishTime>
+      <publishTime>06/05/2017 13:19:16</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.DAL.dll">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:19:16</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.DAL.pdb">
-      <publishTime>06/05/2017 00:33:12</publishTime>
+      <publishTime>06/05/2017 13:19:16</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Logger.dll">
+      <publishTime>06/05/2017 13:30:42</publishTime>
+    </File>
+    <File Include="bin/WowSimpleLadder.Logger.pdb">
+      <publishTime>06/05/2017 13:30:42</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Models.dll">
       <publishTime>06/05/2017 00:33:11</publishTime>
@@ -156,22 +171,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/05/2017 00:33:11</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Web.dll">
-      <publishTime>06/05/2017 00:40:47</publishTime>
+      <publishTime>06/05/2017 13:30:46</publishTime>
     </File>
     <File Include="bin/WowSimpleLadder.Web.pdb">
-      <publishTime>06/05/2017 00:40:47</publishTime>
+      <publishTime>06/05/2017 13:30:46</publishTime>
     </File>
     <File Include="Content/bg.jpg">
       <publishTime>05/20/2017 10:59:56</publishTime>
     </File>
     <File Include="Content/WowLadder.db">
-      <publishTime>06/04/2017 10:30:21</publishTime>
+      <publishTime>06/05/2017 13:36:43</publishTime>
     </File>
     <File Include="Css/entireframework.min.css">
       <publishTime>05/19/2017 06:41:03</publishTime>
     </File>
     <File Include="Css/style.css">
-      <publishTime>06/04/2017 11:26:08</publishTime>
+      <publishTime>06/05/2017 11:38:11</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/09/2017 11:07:04</publishTime>
@@ -180,7 +195,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/04/2017 10:48:43</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/07/2017 10:37:07</publishTime>
+      <publishTime>06/05/2017 13:03:23</publishTime>
     </File>
     <File Include="Scripts/Libs/lodash.core.js">
       <publishTime>06/04/2017 10:48:25</publishTime>
@@ -213,7 +228,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/04/2017 20:34:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/05/2017 00:40:51</publishTime>
+      <publishTime>06/06/2017 08:19:53</publishTime>
     </File>
     <File Include="WowLadder.db">
       <publishTime>06/04/2017 10:30:21</publishTime>

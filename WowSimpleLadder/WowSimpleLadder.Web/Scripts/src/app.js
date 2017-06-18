@@ -126,14 +126,6 @@
                     logicalName: 'realmName'
                 },
                 {
-                    displayName: 'Wins',
-                    logicalName: 'seasonWins'
-                },
-                {
-                    displayName: 'Losses',
-                    logicalName: 'seasonLosses'
-                },
-                {
                     displayName: 'Rating',
                     logicalName: 'rating'
                 }
@@ -144,9 +136,9 @@
 
 function getBlizzardLocaleStr(locale) {
     switch (locale) {
-        case 0:
-            return 'en-us';
         case 1:
+            return 'en-us';
+        case 0:
             return 'en-gb'
     }
 }
