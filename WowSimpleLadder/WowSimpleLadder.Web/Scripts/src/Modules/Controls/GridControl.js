@@ -25,6 +25,8 @@
         this._url = url;
         this._tableHeaders = options.tableHeaders;
         this._selector = selector;
+        this._onDataBound = options.onDataBound;
+
         this._render();
 
         return this;
@@ -54,6 +56,10 @@
             }
 
             targetToRender.appendChild(table);
+
+            if(self._onDataBound && typeof(self._onDataBound) === 'function') {
+                self._onDataBound(data);
+            }
 
         }, function (err) {
             console.error(err);

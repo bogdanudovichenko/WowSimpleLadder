@@ -72,6 +72,9 @@ namespace WowSimpleLadder.Models.ApiModels.Extensions
 
                 jsonTextWriter.WritePropertyName("locale");
                 jsonTextWriter.WriteValue(pvpApiRowModel.Locale);
+
+                jsonTextWriter.WritePropertyName("downloadedOn");
+                jsonTextWriter.WriteValue(pvpApiRowModel.DownloadedOn.ToUniversalTime());
                 //}
                 jsonTextWriter.WriteEndObject();
 

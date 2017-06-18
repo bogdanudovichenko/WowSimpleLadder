@@ -135,3 +135,10 @@ center a {
 a.wow-class-name-link {
     text-decoration: none;
 }
+
+#last-update-wrapper {
+    color: #f1f1f1;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}

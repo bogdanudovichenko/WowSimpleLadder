@@ -52,6 +52,8 @@
         var selectedWowClass = store.getState('selectedWowClass');
 
         if (selectedWowClass) {
+            document.getElementById('wow-specs-drop-down-wrapper').style.display = '';
+
             var wowSpecsList = _.filter(wowClassesList, function (wc) { return wc.value === selectedWowClass })[0].specs;
             var selectedWowSpec = store.getState('selectedWowSpec');
 
@@ -62,6 +64,8 @@
                     store.setState('selectedWowSpec', value);
                 }
             });
+        } else {
+            document.getElementById('wow-specs-drop-down-wrapper').style.display = 'none';
         }
     }
 
@@ -85,6 +89,16 @@
 
         var gridControl = new GridControl('#content-ladder-wrapper', {
             url: url,
+            onDataBound: function(data) {
+                if(!data || !Array.isArray(data) || !data.length) {
+                    return;
+                }
+                
+                var downloadedOnStr = data[0].downloadedOn;
+                var downloadedOn = new Date(downloadedOnStr);
+
+                document.getElementById('last-update').textContent = downloadedOn.toLocaleString();
+            },
             tableHeaders: [
                 {
                     displayName: '№',
